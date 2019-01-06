@@ -1,0 +1,14 @@
+
+
+树莓派远程连接事项：
+1，sd卡接读卡器连接笔记本电脑烧卡，烧卡工具：Win32DiskImager ；如写入失败，使用恢复工具：SDFormatter，烧卡成功。
+2，sd卡烧卡成功，去掉读卡器，将sd卡直接接入树莓派反面的sd卡插槽（重要).
+3, hdmi、vga转换线连接显示器，上电直接就能看到linux图形页面。
+4，putty远程连接：
+   -上电，树莓派自带wifi热点，标识号：yahboom-car
+   -笔记本电脑Advanced IP Scanner扫描Ip地址，获取树莓派地址。
+   -putty远程连接：192.168.0.1 端口 22 ssh。
+   -用户名 pi 密码 yahboom（不是raspberry）
+   -设置系统管理员用户密码：root  密码 raspberry。
+5，系统管理员登陆：
+   putty---pi用户（yahboom）--su root （raspberry）
