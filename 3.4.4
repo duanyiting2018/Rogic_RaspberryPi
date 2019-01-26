@@ -1,0 +1,50 @@
+﻿pi@raspberrypi:~/myfiles $ ls -l
+total 92
+-rw-r--r-- 1 pi pi 93184 Jan 12 12:10 亦庭奖状.xls
+pi@raspberrypi:~/myfiles $ vim Test.sh
+"Test.sh" [New] 6L, 89C written
+pi@raspberrypi:~/myfiles $ ls -l
+total 96
+-rw-r--r-- 1 pi pi    89 Jan 19 00:25 Test.sh
+-rw-r--r-- 1 pi pi 93184 Jan 12 12:10 亦庭奖状.xls
+pi@raspberrypi:~/myfiles $ ./Test.sh
+-bash: ./Test.sh: Permission denied
+pi@raspberrypi:~/myfiles $ chmod 744 Test.sh
+pi@raspberrypi:~/myfiles $ ls -l
+total 96
+-rwxr--r-- 1 pi pi    89 Jan 19 00:25 Test.sh
+-rw-r--r-- 1 pi pi 93184 Jan 12 12:10 亦庭奖状.xls
+pi@raspberrypi:~/myfiles $ chmod 766 Test.sh
+pi@raspberrypi:~/myfiles $ ls -l
+total 96
+-rwxrw-rw- 1 pi pi    89 Jan 19 00:25 Test.sh
+-rw-r--r-- 1 pi pi 93184 Jan 12 12:10 亦庭奖状.xls
+pi@raspberrypi:~/myfiles $ ./Test.sh        
+张三
+参数：
+参数个数0
+pi@raspberrypi:~/myfiles $ cat Test.sh
+#! /bin/sh
+#定义变量
+name=张三
+echo $name
+echo "参数：$*"
+echo "参数个数$#"
+pi@raspberrypi:~/myfiles $ ./Test.sh a
+张三
+参数：a
+参数个数1
+pi@raspberrypi:~/myfiles $ ./Test.sh a b c d e f
+张三
+参数：a b c d e f
+参数个数6
+pi@raspberrypi:~/myfiles $ ls -ltr
+total 96
+-rw-r--r-- 1 pi pi 93184 Jan 12 12:10 亦庭奖状.xls
+-rwxrw-rw- 1 pi pi    89 Jan 19 00:25 Test.sh
+pi@raspberrypi:~/myfiles $ who
+pi       tty7         2019-01-19 00:17 (:0)
+pi       tty1         2019-01-19 00:17
+pi       pts/0        2019-01-19 00:19 (192.168.0.20)
+pi@raspberrypi:~/myfiles $ id
+uid=1000(pi) gid=1000(pi) groups=1000(pi),4(adm),20(dialout),24(cdrom),27(sudo),29(audio),44(video),46(plugdev),60(games),100(users),101(input),108(netdev),997(gpio),998(i2c),999(spi)
