@@ -1,0 +1,42 @@
+﻿pi@raspberrypi:~ $ su
+Password: 
+root@raspberrypi:/home/pi# ./mjpg_streamer -i "./input_raspicam.so" -o "./output_http.so -w ./www"
+bash: ./mjpg_streamer: No such file or directory
+root@raspberrypi:/home/pi# ls
+Desktop     mjpg-streamer-master  myfiles3  python_games  Videos
+Documents   Music                 Pictures  SmartCar      wiringPi-8d188fa
+Downloads   myfiles               Public    Templates     wiringPi-8d188fa.tar.gz
+master.zip  myfiles2              python    tools
+root@raspberrypi:/home/pi# cd mjpg-streamer-master
+root@raspberrypi:/home/pi/mjpg-streamer-master# ls
+mjpg-streamer-experimental  README.md
+root@raspberrypi:/home/pi/mjpg-streamer-master# cd mjpg-streamer-experimental
+root@raspberrypi:/home/pi/mjpg-streamer-master/mjpg-streamer-experimental# ls
+\                input_file.so      mjpg_streamer    output_udp.so  utils.c
+_build           input_http.so      mjpg_streamer.c  plugins        utils.h
+cmake            input_raspicam.so  mjpg_streamer.h  README.md      www
+CMakeLists.txt   input_uvc.so       output_file.so   scripts
+Dockerfile       LICENSE            output_http.so   start.sh
+docker-start.sh  Makefile           output_rtsp.so   TODO
+root@raspberrypi:/home/pi/mjpg-streamer-master/mjpg-streamer-experimental# ./mjpg_streamer -i "./input_raspicam.so" -o "./output_http.so -w ./www"
+MJPG Streamer Version.: 2.0
+ i: fps.............: 5
+ i: resolution........: 640 x 480
+ i: camera parameters..............:
+
+Sharpness 0, Contrast 0, Brightness 50
+Saturation 0, ISO 0, Video Stabilisation No, Exposure compensation 0
+Exposure Mode 'auto', AWB Mode 'auto', Image Effect 'none'
+Metering Mode 'average', Colour Effect Enabled No with U = 128, V = 128
+Rotation 0, hflip No, vflip No
+ROI x 0.000000, y 0.000000, w 1.000000 h 1.000000
+ o: www-folder-path......: ./www/
+ o: HTTP TCP port........: 8080
+ o: HTTP Listen Address..: (null)
+ o: username:password....: disabled
+ o: commands.............: enabled
+ i: Starting Camera
+bind: Address already in use
+bind: Address already in use
+ o: server_thread(): bind(8080) failed
+root@raspberrypi:/home/pi/mjpg-streamer-master/mjpg-streamer-experimental# 

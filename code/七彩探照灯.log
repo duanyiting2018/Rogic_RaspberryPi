@@ -1,0 +1,423 @@
+﻿Linux raspberrypi 4.9.80-v7+ #1098 SMP Fri Mar 9 19:11:42 GMT 2018 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Jan 19 02:17:09 2019
+pi@raspberrypi:~ $ ls
+Desktop     mjpg-streamer-master  myfiles3  python_games  Videos
+Documents   Music                 Pictures  SmartCar      wiringPi-8d188fa
+Downloads   myfiles               Public    Templates     wiringPi-8d188fa.tar.gz
+master.zip  myfiles2              python    tools
+pi@raspberrypi:~ $ cd SmartCar/
+pi@raspberrypi:~/SmartCar $ ls
+advance              infrared_avoid.c         PS2_Control.c
+advance.c            infrared_follow          ServoControlCorlor
+avoid_ultrasonic     infrared_follow.c        ServoControlCorlor.c
+avoid_ultrasonic.c   initpin.sh               servo_ultrasonic_avoid
+bluetooth_control    KeyScanStart             servo_ultrasonic_avoid.c
+bluetooth_control.c  KeyScanStart.c           TCP_control
+CarRun               light_follow             TCP_control.c
+CarRun.c             light_follow.c           tracking
+ColorLED             master_system_control    tracking.c
+ColorLED.c           master_system_control.c
+infrared_avoid       PS2_Control
+pi@raspberrypi:~/SmartCar $ gpio readall
+ +-----+-----+---------+------+---+---Pi 3+--+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |
+ |   2 |   8 |   SDA.1 |  OUT | 1 |  3 || 4  |   |      | 5v      |     |     |
+ |   3 |   9 |   SCL.1 |   IN | 1 |  5 || 6  |   |      | 0v      |     |     |
+ |   4 |   7 | GPIO. 7 |   IN | 1 |  7 || 8  | 1 | ALT0 | TxD     | 15  | 14  |
+ |     |     |      0v |      |   |  9 || 10 | 1 | ALT0 | RxD     | 16  | 15  |
+ |  17 |   0 | GPIO. 0 |   IN | 1 | 11 || 12 | 1 | IN   | GPIO. 1 | 1   | 18  |
+ |  27 |   2 | GPIO. 2 |  OUT | 0 | 13 || 14 |   |      | 0v      |     |     |
+ |  22 |   3 | GPIO. 3 |  OUT | 0 | 15 || 16 | 0 | OUT  | GPIO. 4 | 4   | 23  |
+ |     |     |    3.3v |      |   | 17 || 18 | 0 | OUT  | GPIO. 5 | 5   | 24  |
+ |  10 |  12 |    MOSI | ALT0 | 0 | 19 || 20 |   |      | 0v      |     |     |
+ |   9 |  13 |    MISO |  OUT | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
+ |  11 |  14 |    SCLK |  OUT | 0 | 23 || 24 | 1 | OUT  | CE0     | 10  | 8   |
+ |     |     |      0v |      |   | 25 || 26 | 0 | IN   | CE1     | 11  | 7   |
+ |   0 |  30 |   SDA.0 |   IN | 0 | 27 || 28 | 0 | OUT  | SCL.0   | 31  | 1   |
+ |   5 |  21 | GPIO.21 |   IN | 1 | 29 || 30 |   |      | 0v      |     |     |
+ |   6 |  22 | GPIO.22 |   IN | 0 | 31 || 32 | 1 | IN   | GPIO.26 | 26  | 12  |
+ |  13 |  23 | GPIO.23 |  OUT | 0 | 33 || 34 |   |      | 0v      |     |     |
+ |  19 |  24 | GPIO.24 |  OUT | 0 | 35 || 36 | 0 | OUT  | GPIO.27 | 27  | 16  |
+ |  26 |  25 | GPIO.25 |  OUT | 0 | 37 || 38 | 0 | OUT  | GPIO.28 | 28  | 20  |
+ |     |     |      0v |      |   | 39 || 40 | 0 | OUT  | GPIO.29 | 29  | 21  |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+---Pi 3+--+---+------+---------+-----+-----+
+pi@raspberrypi:~/SmartCar $ gcc ColorLED.c -o qctzhd -lwiringPi
+pi@raspberrypi:~/SmartCar $ ls -l
+total 496
+-rwxr-xr-x 1 root root  8688 Apr 13  2018 advance
+-rw-r--r-- 1 pi   pi    2483 Nov  2  2017 advance.c
+-rwxr-xr-x 1 root root 13556 Apr 13  2018 avoid_ultrasonic
+-rw-r--r-- 1 pi   pi   11763 Nov  2  2017 avoid_ultrasonic.c
+-rwxr-xr-x 1 root root 30216 Apr 13  2018 bluetooth_control
+-rw-r--r-- 1 pi   pi   51957 Apr 13  2018 bluetooth_control.c
+-rwxr-xr-x 1 root root  9000 Apr 13  2018 CarRun
+-rw-r--r-- 1 pi   pi    6706 Nov  2  2017 CarRun.c
+-rwxr-xr-x 1 root root  8492 Apr 13  2018 ColorLED
+-rw-r--r-- 1 pi   pi    2103 Aug 29  2017 ColorLED.c
+-rwxr-xr-x 1 pi   pi    9268 Apr 13  2018 infrared_avoid
+-rw-r--r-- 1 pi   pi    8068 Nov  2  2017 infrared_avoid.c
+-rwxr-xr-x 1 root root  9272 Apr 13  2018 infrared_follow
+-rw-r--r-- 1 pi   pi    8005 Nov  2  2017 infrared_follow.c
+-rw-r--r-- 1 pi   pi     497 Aug 18  2017 initpin.sh
+-rwxr-xr-x 1 root root  9120 Apr 13  2018 KeyScanStart
+-rw-r--r-- 1 pi   pi    7254 Nov  2  2017 KeyScanStart.c
+-rwxr-xr-x 1 root root  9268 Apr 13  2018 light_follow
+-rw-r--r-- 1 pi   pi    7885 Nov  2  2017 light_follow.c
+-rwxr-xr-x 1 root root 19940 Apr 13  2018 master_system_control
+-rw-r--r-- 1 pi   pi   26437 Oct 17  2017 master_system_control.c
+-rwxr-xr-x 1 pi   pi   14608 Apr 13  2018 PS2_Control
+-rw-r--r-- 1 pi   pi   22410 Oct 27  2017 PS2_Control.c
+-rwxr-xr-x 1 pi   pi    8492 Jan 19 02:27 qctzhd
+-rwxr-xr-x 1 root root  8696 Apr 13  2018 ServoControlCorlor
+-rw-r--r-- 1 pi   pi    4901 Oct 10  2017 ServoControlCorlor.c
+-rwxr-xr-x 1 root root 14088 Apr 13  2018 servo_ultrasonic_avoid
+-rw-r--r-- 1 pi   pi   18097 Apr 13  2018 servo_ultrasonic_avoid.c
+-rwxr-xr-x 1 root root 25632 Apr 13  2018 TCP_control
+-rw-r--r-- 1 pi   pi   36334 Nov  2  2017 TCP_control.c
+-rwxr-xr-x 1 root root 13528 Apr 13  2018 tracking
+-rw-r--r-- 1 pi   pi   10175 Nov  2  2017 tracking.c
+pi@raspberrypi:~/SmartCar $ ./qctzhd
+^C
+pi@raspberrypi:~/SmartCar $ vim ColorLED.c
+/**
+* @par Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+* @file         ColorLED.c
+* @author       Danny
+* @version      V1.0
+* @date         2017.08.16
+* @brief        七彩探照灯实验
+* @details
+* @par History  见如下说明
+*/
+#include <wiringPi.h>
+
+#define ON 1     //使能LED
+#define OFF 0    //禁止LED
+
+//定义引脚
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+/**
+* Function       color_led
+* @author        Danny
+* @date          2017.08.16
+* @brief         由R,G,B三色的不同组合形成7种不同的色彩
+* @param[in1]    Red开关
+* @param[in2]    Green开关
+* @param[in3]    Blue开关
+* @retval        void
+* @par History   无
+*/
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+{
+  //红色LED
+  v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+  //绿色LED
+  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+  //蓝色LED
+  //蓝色LED
+  v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+
+/**
+* Function       main
+* @author        Danny
+* @date          2017.08.16
+* @brief         循环显7色LED
+* @param[in]     void
+* @retval        void
+* @par History   无
+*/
+int main()
+        pinMode(LED_G, OUTPUT);
+        {                        //   LED_R   LED_G    LED_B
+    color_led(ON, OFF, OFF); //   1        0        0
+    delay(1000);
+    color_led(OFF, ON, OFF); //   0        1        0
+    delay(1000);
+    color_led(OFF, OFF, ON); //   0        0        1
+    delay(1000);
+    color_led(ON, ON, OFF);  //   1        1        0
+    delay(1000);
+    color_led(ON, OFF, ON);  //   1        0        1
+    delay(1000);
+    color_led(OFF, ON, ON);  //   0        1        1
+    delay(1000);
+        }
+   return 0;
+}
+        }
+   return 0;
+        {                        //   LED_R   LED_G    LED_B
+    color_led(ON, OFF, OFF); //   1        0        0
+    delay(1000);
+    color_led(OFF, ON, OFF); //   0        1        0
+    delay(1000);
+    color_led(OFF, OFF, ON); //   0        0        1
+    delay(1000);
+    color_led(ON, ON, OFF);  //   1        1        0
+    delay(1000);
+    color_led(ON, OFF, ON);  //   1        0        1
+    delay(1000);
+    color_led(OFF, ON, ON);  //   0        1        1
+    delay(1000);
+  //绿色LED
+  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+  //蓝色LED
+  v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+
+/**
+* Function       main
+* @author        Danny
+* @date          2017.08.16
+* @brief         循环显7色LED
+* @param[in]     void
+* @retval        void
+* @par History   无
+*/
+int main()
+        wiringPiSetup();
+
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+/**
+* Function       color_led
+* @author        Danny
+* @date          2017.08.16
+* @brief         由R,G,B三色的不同组合形成7种不同的色彩
+* @param[in1]    Red开关
+* @param[in2]    Green开关
+* @param[in3]    Blue开关
+* @retval        void
+* @par History   无
+*/
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+{
+  //红色LED
+  v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+  //绿色LED
+/**
+* @par Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+* @file         ColorLED.c
+* @author       Danny
+* @version      V1.0
+* @date         2017.08.16
+* @brief        七彩探照灯实验
+* @details
+* @par History  见如下说明
+*/
+#include <wiringPi.h>
+
+#define ON 1     //使能LED
+#define OFF 0    //禁止LED
+
+/**
+* Function       color_led
+* @author        Danny
+* @date          2017.08.16
+* @brief         由R,G,B三色的不同组合形成7种不同的色彩
+* @param[in1]    Red开关
+* @param[in2]    Green开关
+* @param[in3]    Blue开关
+* @retval        void
+* @par History   无
+*/
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+{
+  //红色LED
+  v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+  //绿色LED
+  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+  //蓝色LED
+  //蓝色LED
+  v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+
+/**
+* Function       main
+* @author        Danny
+* @date          2017.08.16
+* @brief         循环显7色LED
+* @param[in]     void
+* @retval        void
+* @par History   无
+*/
+int main()
+        pinMode(LED_G, OUTPUT);
+        {                        //   LED_R   LED_G    LED_B
+    color_led(ON, OFF, OFF); //   1        0        0
+    delay(1000);
+    color_led(OFF, ON, OFF); //   0        1        0
+    delay(1000);
+    color_led(OFF, OFF, ON); //   0        0        1
+    delay(1000);
+    color_led(ON, ON, OFF);  //   1        1        0
+    delay(1000);
+    color_led(ON, OFF, ON);  //   1        0        1
+    delay(1000);
+    color_led(OFF, ON, ON);  //   0        1        1
+    delay(1000);
+        }
+   return 0;
+   return 0;
+"ColorLED.c" [dos] 79L, 2099C written                 
+pi@raspberrypi:~/SmartCar $ gcc ColorLED.c -o qctzhd -lwiringPi
+pi@raspberrypi:~/SmartCar $ ./qctzhd                           
+^C
+pi@raspberrypi:~/SmartCar $ cd ..
+pi@raspberrypi:~ $ mkdir dyt_code
+pi@raspberrypi:~ $ cd dyt_code
+pi@raspberrypi:~/dyt_code $ pwd
+/home/pi/dyt_code
+pi@raspberrypi:~/dyt_code $ vim Hello.c
+int main()
+{       
+        printf("Hello!");
+{       
+        printf("Hello!\n");
+        return 0;
+"Hello.c" [New] 7L, 66C written                       
+pi@raspberrypi:~/dyt_code $ ls -l
+total 4
+-rw-r--r-- 1 pi pi 66 Jan 19 02:38 Hello.c
+pi@raspberrypi:~/dyt_code $ gcc -c -o Hello.o Hello.c
+pi@raspberrypi:~/dyt_code $ ls -l
+total 8
+-rw-r--r-- 1 pi pi   66 Jan 19 02:38 Hello.c
+-rw-r--r-- 1 pi pi 1040 Jan 19 02:42 Hello.o
+pi@raspberrypi:~/dyt_code $ ./Hello.o
+-bash: ./Hello.o: Permission denied
+pi@raspberrypi:~/dyt_code $ chmod u+x Hello.o
+pi@raspberrypi:~/dyt_code $ ls -l    
+total 8
+-rw-r--r-- 1 pi pi   66 Jan 19 02:38 Hello.c
+-rwxr--r-- 1 pi pi 1040 Jan 19 02:42 Hello.o
+pi@raspberrypi:~/dyt_code $ ./Hello.o
+-bash: ./Hello.o: cannot execute binary file: Exec format error
+pi@raspberrypi:~/dyt_code $ 
+pi@raspberrypi:~/dyt_code $ gcc Hello.c -o hello      
+pi@raspberrypi:~/dyt_code $ ls -l
+total 16
+-rwxr-xr-x 1 pi pi 8148 Jan 19 02:47 hello
+-rw-r--r-- 1 pi pi   66 Jan 19 02:38 Hello.c
+-rwxr--r-- 1 pi pi 1040 Jan 19 02:42 Hello.o
+pi@raspberrypi:~/dyt_code $ ./Hello
+-bash: ./Hello: No such file or directory
+pi@raspberrypi:~/dyt_code $ ./hello
+Hello!
+pi@raspberrypi:~/dyt_code $ gdb hello
+GNU gdb (Raspbian 7.12-6) 7.12.0.20161007-git
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "arm-linux-gnueabihf".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...(no debugging symbols found)...done.
+(gdb) list hello.c
+No symbol table is loaded.  Use the "file" command.
+(gdb) list Hello.c
+No symbol table is loaded.  Use the "file" command.
+(gdb) file Hello.c
+"/home/pi/dyt_code/Hello.c": not in executable format: File format not recognized
+(gdb) file Hello.o
+Reading symbols from Hello.o...(no debugging symbols found)...done.
+(gdb) list Hello.c:1
+No symbol table is loaded.  Use the "file" command.
+(gdb) list 1,3
+No symbol table is loaded.  Use the "file" command.
+(gdb) list 2
+No symbol table is loaded.  Use the "file" command.
+(gdb) Quit
+(gdb) Quit
+pi@raspberrypi:~/dyt_code $ gcc Hello.c -o hello -g
+pi@raspberrypi:~/dyt_code $ gdb hello              
+GNU gdb (Raspbian 7.12-6) 7.12.0.20161007-git
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "arm-linux-gnueabihf".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) list 2
+1       #include<stdio.h>
+2       int main()
+3       {
+4               printf("Hello!\n");
+5               return 0;
+6       }
+7
+(gdb) list 2,6
+2       int main()
+3       {
+4               printf("Hello!\n");
+5               return 0;
+6       }
+(gdb) run
+Starting program: /home/pi/dyt_code/hello 
+Hello!
+[Inferior 1 (process 1099) exited normally]
+(gdb) break 4
+Breakpoint 1 at 0x10444: file Hello.c, line 4.
+(gdb) info break
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x00010444 in main at Hello.c:4
+(gdb) list
+7
+(gdb) info local
+No frame selected.
+(gdb) info stack
+No stack.
+(gdb) step
+The program is not being run.
+(gdb) run
+Starting program: /home/pi/dyt_code/hello 
+
+Breakpoint 1, main () at Hello.c:4
+4               printf("Hello!\n");
+(gdb) step
+_IO_puts (str=0x104cc "Hello!") at ioputs.c:33
+33      ioputs.c: No such file or directory.
+(gdb) continue
+Continuing.
+Hello!
+[Inferior 1 (process 1103) exited normally]
+(gdb) Quit
+(gdb) quit

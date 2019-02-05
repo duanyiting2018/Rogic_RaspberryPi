@@ -1,0 +1,167 @@
+﻿Linux raspberrypi 4.9.80-v7+ #1098 SMP Fri Mar 9 19:11:42 GMT 2018 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Jan 19 01:40:52 2019 from 192.168.0.20
+pi@raspberrypi:~ $ ls -lh
+total 1.1M
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Desktop
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Documents
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Downloads
+-rw-r--r--  1 pi pi 838K Jun  5  2017 master.zip
+drwxr-xr-x  3 pi pi 4.0K Apr 11  2017 mjpg-streamer-master
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Music
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:25 myfiles
+drwxr-xr-x  2 pi pi 4.0K Jan 19  2019 myfiles2
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:00 myfiles3
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Pictures
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Public
+drwxr-xr-x  2 pi pi 4.0K Apr 18  2018 python
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 python_games
+drwxr-xr-x  2 pi pi 4.0K Apr 13  2018 SmartCar
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Templates
+drwxrwxrwx  3 pi pi 4.0K Apr 10  2018 tools
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Videos
+drwxr-xr-x 10 pi pi 4.0K Mar 14  2018 wiringPi-8d188fa
+-rw-r--r--  1 pi pi 149K Jan 26  2019 wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ chmod u-r lin.dat
+chmod: cannot access 'lin.dat': No such file or directory
+pi@raspberrypi:~ $ ls -l
+total 1060
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Desktop
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Documents
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Downloads
+-rw-r--r--  1 pi pi 857528 Jun  5  2017 master.zip
+drwxr-xr-x  3 pi pi   4096 Apr 11  2017 mjpg-streamer-master
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Music
+drwxr-xr-x  2 pi pi   4096 Jan 19 00:25 myfiles
+drwxr-xr-x  2 pi pi   4096 Jan 19  2019 myfiles2
+drwxr-xr-x  2 pi pi   4096 Jan 19 00:00 myfiles3
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Pictures
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Public
+drwxr-xr-x  2 pi pi   4096 Apr 18  2018 python
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 python_games
+drwxr-xr-x  2 pi pi   4096 Apr 13  2018 SmartCar
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Templates
+drwxrwxrwx  3 pi pi   4096 Apr 10  2018 tools
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Videos
+drwxr-xr-x 10 pi pi   4096 Mar 14  2018 wiringPi-8d188fa
+-rw-r--r--  1 pi pi 151741 Jan 26  2019 wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ chmod u-r myfiles2
+pi@raspberrypi:~ $ ls -lh
+total 1.1M
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Desktop
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Documents
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Downloads
+-rw-r--r--  1 pi pi 838K Jun  5  2017 master.zip
+drwxr-xr-x  3 pi pi 4.0K Apr 11  2017 mjpg-streamer-master
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Music
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:25 myfiles
+d-wxr-xr-x  2 pi pi 4.0K Jan 19  2019 myfiles2
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:00 myfiles3
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Pictures
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Public
+drwxr-xr-x  2 pi pi 4.0K Apr 18  2018 python
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 python_games
+drwxr-xr-x  2 pi pi 4.0K Apr 13  2018 SmartCar
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Templates
+drwxrwxrwx  3 pi pi 4.0K Apr 10  2018 tools
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Videos
+drwxr-xr-x 10 pi pi 4.0K Mar 14  2018 wiringPi-8d188fa
+-rw-r--r--  1 pi pi 149K Jan 26  2019 wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ chmod u+r myfiles 
+pi@raspberrypi:~ $ ls -lh           
+total 1.1M
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Desktop
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Documents
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Downloads
+-rw-r--r--  1 pi pi 838K Jun  5  2017 master.zip
+drwxr-xr-x  3 pi pi 4.0K Apr 11  2017 mjpg-streamer-master
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Music
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:25 myfiles
+d-wxr-xr-x  2 pi pi 4.0K Jan 19  2019 myfiles2
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:00 myfiles3
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Pictures
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Public
+drwxr-xr-x  2 pi pi 4.0K Apr 18  2018 python
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 python_games
+drwxr-xr-x  2 pi pi 4.0K Apr 13  2018 SmartCar
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Templates
+drwxrwxrwx  3 pi pi 4.0K Apr 10  2018 tools
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Videos
+drwxr-xr-x 10 pi pi 4.0K Mar 14  2018 wiringPi-8d188fa
+-rw-r--r--  1 pi pi 149K Jan 26  2019 wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ chmod u+r myfiles2
+pi@raspberrypi:~ $ ls -lh            
+total 1.1M
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Desktop
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Documents
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Downloads
+-rw-r--r--  1 pi pi 838K Jun  5  2017 master.zip
+drwxr-xr-x  3 pi pi 4.0K Apr 11  2017 mjpg-streamer-master
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Music
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:25 myfiles
+drwxr-xr-x  2 pi pi 4.0K Jan 19  2019 myfiles2
+drwxr-xr-x  2 pi pi 4.0K Jan 19 00:00 myfiles3
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Pictures
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Public
+drwxr-xr-x  2 pi pi 4.0K Apr 18  2018 python
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 python_games
+drwxr-xr-x  2 pi pi 4.0K Apr 13  2018 SmartCar
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Templates
+drwxrwxrwx  3 pi pi 4.0K Apr 10  2018 tools
+drwxr-xr-x  2 pi pi 4.0K Mar 13  2018 Videos
+drwxr-xr-x 10 pi pi 4.0K Mar 14  2018 wiringPi-8d188fa
+-rw-r--r--  1 pi pi 149K Jan 26  2019 wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ chmod a=  myfiles3
+pi@raspberrypi:~ $ ls -l
+total 1060
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Desktop
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Documents
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Downloads
+-rw-r--r--  1 pi pi 857528 Jun  5  2017 master.zip
+drwxr-xr-x  3 pi pi   4096 Apr 11  2017 mjpg-streamer-master
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Music
+drwxr-xr-x  2 pi pi   4096 Jan 19 00:25 myfiles
+drwxr-xr-x  2 pi pi   4096 Jan 19  2019 myfiles2
+d---------  2 pi pi   4096 Jan 19 00:00 myfiles3
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Pictures
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Public
+drwxr-xr-x  2 pi pi   4096 Apr 18  2018 python
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 python_games
+drwxr-xr-x  2 pi pi   4096 Apr 13  2018 SmartCar
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Templates
+drwxrwxrwx  3 pi pi   4096 Apr 10  2018 tools
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Videos
+drwxr-xr-x 10 pi pi   4096 Mar 14  2018 wiringPi-8d188fa
+-rw-r--r--  1 pi pi 151741 Jan 26  2019 wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ chmod u+r  myfiles3  
+pi@raspberrypi:~ $ ls -l
+total 1060
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Desktop
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Documents
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Downloads
+-rw-r--r--  1 pi pi 857528 Jun  5  2017 master.zip
+drwxr-xr-x  3 pi pi   4096 Apr 11  2017 mjpg-streamer-master
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Music
+drwxr-xr-x  2 pi pi   4096 Jan 19 00:25 myfiles
+drwxr-xr-x  2 pi pi   4096 Jan 19  2019 myfiles2
+dr--------  2 pi pi   4096 Jan 19 00:00 myfiles3
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Pictures
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Public
+drwxr-xr-x  2 pi pi   4096 Apr 18  2018 python
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 python_games
+drwxr-xr-x  2 pi pi   4096 Apr 13  2018 SmartCar
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Templates
+drwxrwxrwx  3 pi pi   4096 Apr 10  2018 tools
+drwxr-xr-x  2 pi pi   4096 Mar 13  2018 Videos
+drwxr-xr-x 10 pi pi   4096 Mar 14  2018 wiringPi-8d188fa
+-rw-r--r--  1 pi pi 151741 Jan 26  2019 wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ cd ~
+pi@raspberrypi:~ $ pwd
+/home/pi
+pi@raspberrypi:~ $ 
