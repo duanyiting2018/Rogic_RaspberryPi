@@ -1,0 +1,1060 @@
+﻿pi@raspberrypi:~ $ ls
+Desktop    master.zip            myfiles2  python        tools
+Documents  mjpg-streamer-master  myfiles3  python_games  Videos
+Downloads  Music                 Pictures  SmartCar      wiringPi-8d188fa
+dyt_code   myfiles               Public    Templates     wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ cd SmartCar
+pi@raspberrypi:~/SmartCar $ ls
+advance              infrared_avoid.c         PS2_Control.c
+advance.c            infrared_follow          qctzhd
+avoid_ultrasonic     infrared_follow.c        ServoControlCorlor
+avoid_ultrasonic.c   initpin.sh               ServoControlCorlor.c
+bluetooth_control    KeyScanStart             servo_ultrasonic_avoid
+bluetooth_control.c  KeyScanStart.c           servo_ultrasonic_avoid.c
+CarRun               light_follow             TCP_control
+CarRun.c             light_follow.c           TCP_control.c
+ColorLED             master_system_control    tracking
+ColorLED.c           master_system_control.c  tracking.c
+infrared_avoid       PS2_Control
+pi@raspberrypi:~/SmartCar $ cp ColorLED.c ../dyt_code/
+pi@raspberrypi:~/SmartCar $ cd ../dyt_code/
+pi@raspberrypi:~/dyt_code $ ls
+ColorLED.c  hello  Hello.c  Hello.o
+pi@raspberrypi:~/dyt_code $ vim ColorLED.c
+/**
+* @par Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+* @file         ColorLED.c
+* @author       Danny
+* @version      V1.0
+* @date         2017.08.16
+* @brief        七彩探照灯实验
+* @details
+* @par History  见如下说明
+*/
+#include <wiringPi.h>
+
+#define ON 1     //使能LED
+#define OFF 0    //禁止LED
+
+//定义引脚
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+/**
+* Function       color_led
+* @author        Danny
+* @date          2017.08.16
+* @brief         由R,G,B三色的不同组合形成7种不同的色彩
+* @param[in1]    Red开关
+* @param[in2]    Green开关
+* @param[in3]    Blue开关
+* @retval        void
+* @par History   无
+*/
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+{
+  //红色LED
+  v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+  //绿色LED
+  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+/**
+* Function       color_led
+* @author        Danny
+* @date          2017.08.16
+* @brief         由R,G,B三色的不同组合形成7种不同的色彩
+* @param[in1]    Red开关
+* @param[in2]    Green开关
+* @param[in3]    Blue开关
+* @retval        void
+* @par History   无
+*/
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+{
+  //红色LED
+  v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+  //绿色LED
+  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+  //蓝色LED
+  //蓝色LED
+  v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+}
+
+/**
+* Function       main
+* @author        Danny
+* @date          2017.08.16
+* @brief         循环显7色LED
+* @param[in]     void
+* @retval        void
+* @par History   无
+*/
+int main()
+        while (1)
+        while (1)
+        {                        //   LED_R   LED_G    LED_B
+    color_led(ON, OFF, OFF); //   1        0        0
+    delay(100);
+    color_led(OFF, ON, OFF); //   0        1        0
+    delay(100);
+    color_led(OFF, OFF, ON); //   0        0        1
+    delay(100);
+    color_led(ON, ON, OFF);  //   1        1        0
+    delay(100);
+    color_led(ON, OFF, ON);  //   1        0        1
+    delay(100);
+    color_led(OFF, ON, ON);  //   0        1        1
+    delay(100);
+    color_led(ON, ON, ON);   //   1        1        1   
+        }
+   return 0;
+"ColorLED.c" [dos] 79L, 2098C written                 
+pi@raspberrypi:~/dyt_code $ history
+    1  top
+    2  ls
+    3  top
+    4  ls
+    5  cd /
+    6  ls
+    7  su
+    8  ls
+    9  div
+   10  df
+   11  ifconfig
+   12  iwconfig
+   13  sudo raspi-config
+   14  ls
+   15  top
+   16  ls
+   17  apt-get install tightvncserver
+   18  sudo apt-get install tightvncserver 
+   19  vncpasswd
+   20  cd /etc/init.d/
+   21  ls
+   22  vi tightvncserver
+   23  ls
+   24  ls -al
+   25  sudo vi tightvncserver
+   26  ls
+   27  sudo vi tightvncserver 
+   28  ls
+   29  sudo chmod 755 tightvncserver 
+   30  sudo update-rc.d tightvncserver defaults
+   31  ifconfig
+   32  ls
+   33  init 0
+   34  ls
+   35  cd /etc/
+   36  ls
+   37  cd init.d/
+   38  ls
+   39  ls
+   40  cd /etc/
+   41  ls
+   42  top
+   43  ls
+   44  sudo vi rc.local 
+   45  ls
+   46  reboot
+   47  ls
+   48  cd init.d/
+   49  ls
+   50  ./tightvncserver 
+   51  tightvncserver start
+   52  service tightvncserver status
+   53  service tightvncserver stop
+   54  service tightvncserver start
+   55  service tightvncserver status
+   56  service tightvncserver restart
+   57  ls
+   58  vi tightvncserver 
+   59  sudo vi tightvncserver 
+   60  ls
+   61  service tightvncserver status
+   62  service tightvncserver start
+   63  sudo systemctl daemon-reload 
+   64  service tightvncserver stop
+   65  service tightvncserver start
+   66  cd ..
+   67  ls
+   68  cd ssh/
+   69  ls
+   70  sudo vi sshd_config 
+   71  ls
+   72  cd /etc/
+   73  sudo vi rc.local 
+   74  reboot
+   75  init 0
+   76  sudo reboot
+   77  ls
+   78  service tightvncserver status
+   79  ls
+   80  /etc/
+   81  cd /etc/
+   82  ls
+   83  cd init.d/
+   84  ls
+   85  cd ..
+   86  ls
+   87  cd ssh/
+   88  ls
+   89  vi sshd_config 
+   90  passwd root
+   91  sudo passwd root
+   92  su
+   93  ifconfig
+   94  service ssh status
+   95  sudo service ssh restart
+   96  cd /etc/ss
+   97  cd /etc/ssh/
+   98  ls
+   99  vi sshd_config 
+  100  su
+  101  ls
+  102  cd ..
+  103  ls
+  104  cd TrikeBotCar/
+  105  ls
+  106  ./advance 
+  107  ls
+  108  chomd 777 initpin.sh 
+  109  sudo chomd 777 initpin.sh 
+  110  sudo chmod 777 initpin.sh 
+  111  ./initpin.sh 
+  112  ls
+  113  cd ..
+  114  ls
+  115  cd mjpg-streamer-master/
+  116  ls
+  117  cd mjpg-streamer-experimental/
+  118  ls
+  119  chmod 777 start.sh 
+  120  su
+  121  ls
+  122  cd  ../mjpg-streamer-master/
+  123  ls
+  124  cd mjpg-streamer-experimental/
+  125  ls
+  126  ./start.sh 
+  127  init 0
+  128  sudo init 0
+  129  su
+  130  ls
+  131  cd ..
+  132  ls
+  133  cd TrikeBotCar/
+  134  ls
+  135  ./advance 
+  136  ./initpin.sh 
+  137  sudo init 0
+  138  su
+  139  ls
+  140  cd ..
+  141  ls
+  142  service ssh status
+  143  service tightvncserver status
+  144  service tightvncserver restart
+  145  service tightvncserver status
+  146  chkconfig
+  147  sudo apt-get install chkconfig
+  148  chkconfig --add tightvncserver 
+  149  sudo chkconfig --add tightvncserver 
+  150  reboot
+  151  sudo reboot
+  152  ls
+  153  service tightvncserver status
+  154  df
+  155  ls
+  156  cdd  
+  157  cd ..
+  158  ls
+  159  rm TrikeBotCar -rf
+  160  su
+  161  ls
+  162  init 0
+  163  sudo init 0
+  164  ls
+  165  cd ..
+  166  ls
+  167  sudo init 0
+  168  cd ..
+  169  ls
+  170  sudo init 0
+  171  ls
+  172  cd ..
+  173  ls
+  174  cd  LCD-show/
+  175  ls
+  176  ./LCD-hdmi 
+  177  sudo init 0
+  178  ls
+  179  raspi-config
+  180  sudo raspi-config
+  181  sudo reboot
+  182  sudo shutdown -h now
+  183  ls
+  184  cd ..
+  185  ls
+  186  init 0
+  187  sudo init 0
+  188  ls
+  189  cd TrikeBotCar/
+  190  ls
+  191  gcc bluetooth_control.c -o bluetooth_control -lwiringPi -lpthread
+  192  ./bluetooth_control 
+  193  ls
+  194  chmod 777 /home/
+  195  su
+  196  ls
+  197  cd TrikeBotCar/
+  198  ls
+  199  ./bluetooth_control 
+  200  ls /dev
+  201  ls -l /dev
+  202  su
+  203  ls
+  204  stty -a -F /dev/ttyTHS2
+  205  ls
+  206  cd TrikeBotCar/
+  207  ls
+  208  ./bluetooth_control 
+  209  ls
+  210  cd ..
+  211  ls
+  212  cd ..
+  213  ls
+  214  cd pi
+  215  ls
+  216  unzip master.zip 
+  217  ls
+  218  cd mjpg-streamer-master/mjpg-streamer-experimental/
+  219  ls
+  220  make clean all
+  221  ls
+  222  ./start.sh 
+  223  apt-get install cmake
+  224  sudo apt-get install cmake
+  225  sudo apt-get install libjpeg8-dev
+  226  make clean all
+  227  ./start.sh 
+  228  ls
+  229  ./start.sh 
+  230  top
+  231  reboot
+  232  su
+  233  ls
+  234  cd mjpg-streamer-master/mjpg-streamer-experimental/
+  235  ls
+  236  ./start.sh 
+  237  ./start.sh &
+  238  ls
+  239  cd ..
+  240  ls
+  241  cd ..
+  242  ls
+  243  cd /etc/
+  244  ls
+  245  vi rc.local 
+  246  su
+  247  ls
+  248  top
+  249  ls
+  250  cat /etc/rc.local 
+  251  su
+  252  top
+  253  ls
+  254  cd mjpg-streamer-master/mjpg-streamer-experimental/
+  255  ls
+  256  ./start.sh 
+  257  vi /etc/rc.local 
+  258  cat /etc/rc.local 
+  259  su
+  260  ls
+  261  cd python_code/
+  262  ls
+  263  python whistle.py 
+  264  vi whistle.py 
+  265  top
+  266  sudo kill -9 385 400
+  267  ls
+  268  cd python_code/
+  269  ls
+  270  python whistle.py 
+  271  python ColorLED.py 
+  272  init 6
+  273  sudo init 6
+  274  ls
+  275  top
+  276  su
+  277  cd ..
+  278  ls
+  279  c
+  280  cd P
+  281  cd pi/
+  282  s
+  283  ls
+  284  cd python_
+  285  cd python_code/
+  286  ls
+  287  TOP
+  288  top
+  289  kill -9 382
+  290  sudo kill -9 382
+  291  ls
+  292  python bluetooth_control.py 
+  293  ls
+  294  sudo init 6
+  295  ls
+  296  su
+  297  ls
+  298  cd TrikeBotCar/
+  299  ls
+  300  top
+  301  kill -9 380
+  302  sudo kill -9 380
+  303  ls
+  304  ./TCP_control 
+  305  ls
+  306  sudo init 6
+  307  su
+  308  ls
+  309  cd ..
+  310  ls
+  311  sudo init 6
+  312  ls
+  313  su
+  314  ls
+  315  rm -rf python_code TrikeBotCar
+  316  ls
+  317  cd SmartCar/
+  318  ls
+  319  chmod 777 initpin.sh 
+  320  ./initpin.sh 
+  321  ls
+  322  cd ..
+  323  ls
+  324  cd /etc/
+  325  vi rc.local 
+  326  SU
+  327  su
+  328  top
+  329  ls
+  330  cd SmartCar/
+  331  ls
+  332  chmod 777 *
+  333  ls
+  334  ./bluetooth_control_tank
+  335  cd 
+  336  cd python
+  337  ls
+  338  ls -al
+  339  chmod 777 *
+  340  ls
+  341  reboot
+  342  sudo reboot
+  343  ls
+  344  top
+  345  sudo init 6
+  346  sudo shutdown -h now
+  347  ls
+  348  rm -rf python SmartCar 
+  349  ls
+  350  mv rc.local /etc/
+  351  sudo mv rc.local /etc/
+  352  ls
+  353  su
+  354  ls
+  355  top
+  356  ls
+  357  cd SmartCar/
+  358  ls
+  359  ls -al
+  360  chmod 777 *
+  361  ls
+  362  cd ..
+  363  ls
+  364  cd python
+  365  ls
+  366  chmod 777 *
+  367  ls
+  368  cd ..
+  369  vi /etc/rc.local 
+  370  reboot
+  371  sudo reboot
+  372  top
+  373  ls
+  374  cd /etc/
+  375  ls
+  376  chmod 777 rc.local 
+  377  ls
+  378  vi rc.local 
+  379  ls
+  380  cd
+  381  cd SmartCar/
+  382  ls
+  383  ./bluetooth_control
+  384  top
+  385  cd ..
+  386  ls
+  387  cd mjpg-streamer-master/mjpg-streamer-experimental/
+  388  ls
+  389  ./start.sh 
+  390  ls
+  391  cd /etc/
+  392  ls
+  393  reboot 
+  394  sudo reboot
+  395  ls
+  396  tpo
+  397  top
+  398  shutdown -h now su
+  399  su shutdown -h now
+  400  su
+  401  suyahboom
+  402  su
+  403  chmod 777 SmartCar
+  404  rm -rf SmartCar
+  405  LS
+  406  ls
+  407  cd SmartCar/
+  408  LS
+  409  ls
+  410  sudo gcc advance.c -o advance.c -wiringPi
+  411  sudo gcc advance.c -o advance -wiringPi
+  412  sudo gcc advance.c -o advance -lwiringPi
+  413  ./advance 
+  414  ls
+  415  gcc infrared_avoid.c -o infrared_avoid -lwiringPi
+  416  ls -l
+  417  gcc PS2_Control.c -o PS2_Control -lwiringPi
+  418  ls
+  419  sudo gcc avoid_ultrasonic.c -o avoid_ultrasonic -lwringPi
+  420  sudo gcc avoid_ultrasonic.c -o avoid_ultrasonic -lwiringPi
+  421  sudo gcc infrared_follow.c -o infrared_follow -lwiringPi
+  422  sudo gcc ServoControlCorlor.c -o ServoControlCorlor -lwiringPi
+  423  sudo gcc bluetooth_control.c -o bluetooth_control -lwiringPi
+  424  sudo gcc KeyScanStart.c -o KeyScanStart -lwiringPi
+  425  sudo gcc servo_ultrasonic_avoid.c -o servo_ultrasonic_avoid -lwiringPi
+  426  sudo CarRun.c -o CarRun -lwiringPi
+  427  sudo gcc CarRun.c -o CarRun -lwiringPi
+  428  sudo gcc light_follow.c -o light_follow -lwiringPi
+  429  sudo gcc TCP_control.c -o TCP_control -lwiringPi
+  430  sudo gcc TCP_control.c -o TCP_control -lwiringPi -lpthread
+  431  ls
+  432  sudo gcc ColorLED.c -o ColorLED -lwiringPi
+  433  sudo gcc tracking.c -o tracking -lwiringPi
+  434  suod master_system_control.c -o master_system_control -lwiringPi
+  435  sudo gcc master_system_control.c -o master_system_control -lwiringPi
+  436  ls
+  437  sudo gcc TCP_control.c -o TCP_control -lwiringPi
+  438  sudo gcc TCP_control.c -o TCP_control -lwiringPi -lpthread
+  439  cd ~
+  440  ls
+  441  cd SmartCar/
+  442  ls
+  443  sudo vim avoid_ultrasonic.c
+  444  sudo vim servo_ultrasonic_avoid.c
+  445  sudo gcc servo_ultrasonic_avoid.c -o servo_ultrasonic_avoid -lwiringPi
+  446  ./servo_ultrasonic_avoid 
+  447  sudo vim servo_ultrasonic_avoid.c
+  448  sudo vim bluetooth_control.c
+  449  sudo gcc bluetooth_control.c -o bluetooth_control -lwiringPi -lpthread
+  450  sudo poweroff
+  451  ifconfig
+  452  su
+  453  exit
+  454  pwd
+  455  ls /
+  456  ls
+  457  mkdir myfiles
+  458  ls
+  459  ls -ltr
+  460  ls -l
+  461  date -s 01/19/19
+  462  sudo date -s 01/19/19
+  463  date
+  464  sudo date -s 10:20:00
+  465  date
+  466  mkdir myfiles2
+  467  ls -l
+  468  ls -ltr
+  469  sudo date -s 01/19/2019
+  470  mkdir myfiles3
+  471  ls -ltr
+  472  ls -F
+  473  ls -m
+  474  ls --help
+  475  ls -m -F
+  476  ls
+  477  cd myfiles
+  478  ls
+  479  cd ..
+  480  ls
+  481  cd SmartCar
+  482  gpio -v
+  483  pwd
+  484  ls
+  485  cd myfiles
+  486  ls
+  487  ls-l
+  488  ls -l
+  489  cd ..
+  490  ls -l
+  491  cd myfiles
+  492  ls -l
+  493  vim Test.sh
+  494  ls -l
+  495  ./Test.sh
+  496  chmod 744 Test.sh
+  497  ls -l
+  498  chmod 766 Test.sh
+  499  ls -l
+  500  ./Test.sh
+  501  cat Test.sh
+  502  ./Test.sh a
+  503  ./Test.sh a b c d e f
+  504  ls -ltr
+  505  who
+  506  id
+  507  su
+  508  ls -lh
+  509  chmod u-r lin.dat
+  510  ls -l
+  511  chmod u-r myfiles2
+  512  ls -lh
+  513  chmod u+r myfiles
+  514  ls -lh
+  515  chmod u+r myfiles2
+  516  ls -lh
+  517  chmod a=  myfiles3
+  518  ls -l
+  519  chmod u+r  myfiles3
+  520  ls -l
+  521  cd ~
+  522  pwd
+  523  ls
+  524  cd SmartCar
+  525  ls
+  526  cp ColorLED.c ../dyt_code/
+  527  cd ../dyt_code/
+  528  ls
+  529  vim ColorLED.c
+  530  history
+pi@raspberrypi:~/dyt_code $ history |grep gcc
+  191  gcc bluetooth_control.c -o bluetooth_control -lwiringPi -lpthread
+  410  sudo gcc advance.c -o advance.c -wiringPi
+  411  sudo gcc advance.c -o advance -wiringPi
+  412  sudo gcc advance.c -o advance -lwiringPi
+  415  gcc infrared_avoid.c -o infrared_avoid -lwiringPi
+  417  gcc PS2_Control.c -o PS2_Control -lwiringPi
+  419  sudo gcc avoid_ultrasonic.c -o avoid_ultrasonic -lwringPi
+  420  sudo gcc avoid_ultrasonic.c -o avoid_ultrasonic -lwiringPi
+  421  sudo gcc infrared_follow.c -o infrared_follow -lwiringPi
+  422  sudo gcc ServoControlCorlor.c -o ServoControlCorlor -lwiringPi
+  423  sudo gcc bluetooth_control.c -o bluetooth_control -lwiringPi
+  424  sudo gcc KeyScanStart.c -o KeyScanStart -lwiringPi
+  425  sudo gcc servo_ultrasonic_avoid.c -o servo_ultrasonic_avoid -lwiringPi
+  427  sudo gcc CarRun.c -o CarRun -lwiringPi
+  428  sudo gcc light_follow.c -o light_follow -lwiringPi
+  429  sudo gcc TCP_control.c -o TCP_control -lwiringPi
+  430  sudo gcc TCP_control.c -o TCP_control -lwiringPi -lpthread
+  432  sudo gcc ColorLED.c -o ColorLED -lwiringPi
+  433  sudo gcc tracking.c -o tracking -lwiringPi
+  435  sudo gcc master_system_control.c -o master_system_control -lwiringPi
+  437  sudo gcc TCP_control.c -o TCP_control -lwiringPi
+  438  sudo gcc TCP_control.c -o TCP_control -lwiringPi -lpthread
+  445  sudo gcc servo_ultrasonic_avoid.c -o servo_ultrasonic_avoid -lwiringPi
+  449  sudo gcc bluetooth_control.c -o bluetooth_control -lwiringPi -lpthread
+  531  history |grep gcc
+pi@raspberrypi:~/dyt_code $ sudo gcc ColorLED.c -o ColorLED
+/tmp/ccGHHfPm.o: In function `color_led':
+ColorLED.c:(.text+0x34): undefined reference to `digitalWrite'
+ColorLED.c:(.text+0x4c): undefined reference to `digitalWrite'
+ColorLED.c:(.text+0x6c): undefined reference to `digitalWrite'
+ColorLED.c:(.text+0x84): undefined reference to `digitalWrite'
+ColorLED.c:(.text+0xa4): undefined reference to `digitalWrite'
+/tmp/ccGHHfPm.o:ColorLED.c:(.text+0xbc): more undefined references to `digitalWrite' follow
+/tmp/ccGHHfPm.o: In function `main':
+ColorLED.c:(.text+0xe0): undefined reference to `wiringPiSetup'
+ColorLED.c:(.text+0xf4): undefined reference to `pinMode'
+ColorLED.c:(.text+0x108): undefined reference to `pinMode'
+ColorLED.c:(.text+0x11c): undefined reference to `pinMode'
+ColorLED.c:(.text+0x134): undefined reference to `delay'
+ColorLED.c:(.text+0x14c): undefined reference to `delay'
+ColorLED.c:(.text+0x164): undefined reference to `delay'
+ColorLED.c:(.text+0x17c): undefined reference to `delay'
+ColorLED.c:(.text+0x194): undefined reference to `delay'
+/tmp/ccGHHfPm.o:ColorLED.c:(.text+0x1ac): more undefined references to `delay' follow
+collect2: error: ld returned 1 exit status
+pi@raspberrypi:~/dyt_code $ sudo gcc ColorLED.c -o ColorLED -lwiringPi
+pi@raspberrypi:~/dyt_code $ ls
+ColorLED  ColorLED.c  hello  Hello.c  Hello.o
+pi@raspberrypi:~/dyt_code $ ./ColorLED
+^C
+pi@raspberrypi:~/dyt_code $ gdb ColorLED
+GNU gdb (Raspbian 7.12-6) 7.12.0.20161007-git
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "arm-linux-gnueabihf".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ColorLED...(no debugging symbols found)...done.
+(gdb) list
+No symbol table is loaded.  Use the "file" command.
+(gdb) list 9
+No symbol table is loaded.  Use the "file" command.
+(gdb) list ColorLED.c
+No symbol table is loaded.  Use the "file" command.
+(gdb) list ColorLED.c:1
+No symbol table is loaded.  Use the "file" command.
+(gdb) break 1
+No symbol table is loaded.  Use the "file" command.
+(gdb) run
+Starting program: /home/pi/dyt_code/ColorLED 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/arm-linux-gnueabihf/libthread_db.so.1".
+^C
+Program received signal SIGINT, Interrupt.
+0x76ee2008 in nanosleep () at ../sysdeps/unix/syscall-template.S:84
+84      ../sysdeps/unix/syscall-template.S: No such file or directory.
+(gdb) Quit
+A debugging session is active.
+
+        Inferior 1 [process 1080] will be killed.
+
+Quit anyway? (y or n) y
+pi@raspberrypi:~/dyt_code $ sudo gcc ColorLED.c -o ColorLED -lwiringPi -g
+pi@raspberrypi:~/dyt_code $ gdb ColorLED
+GNU gdb (Raspbian 7.12-6) 7.12.0.20161007-git
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "arm-linux-gnueabihf".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ColorLED...done.
+(gdb) list
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+42      }
+43
+44      /**
+45      * Function       main
+46      * @author        Danny
+47      * @date          2017.08.16
+48      * @brief         循环显7色LED
+49      * @param[in]     void
+50      * @retval        void
+(gdb) list 1,40
+1       /**
+2       * @par Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+3       * @file         ColorLED.c
+4       * @author       Danny
+5       * @version      V1.0
+6       * @date         2017.08.16
+7       * @brief        七彩探照灯实验
+8       * @details
+9       * @par History  见如下说明
+10      */
+11      #include <wiringPi.h>
+12
+13      #define ON 1     //使能LED
+14      #define OFF 0    //禁止LED
+15
+16      //定义引脚
+17      int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+18      int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+19      int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+20
+21      /**
+---Type <return> to continue, or q <return> to quit---
+22      * Function       color_led
+23      * @author        Danny
+24      * @date          2017.08.16
+25      * @brief         由R,G,B三色的不同组合形成7种不同的色彩
+26      * @param[in1]    Red开关
+27      * @param[in2]    Green开关
+28      * @param[in3]    Blue开关
+29      * @retval        void
+30      * @par History   无
+31      */
+32      void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+33      {
+34        //红色LED
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+36       
+37        //绿色LED
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+39        
+40        //蓝色LED
+(gdb) break 1
+Breakpoint 1 at 0x1069c: file ColorLED.c, line 1.
+(gdb) info break
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0001069c in color_led at ColorLED.c:1
+(gdb) run
+Starting program: /home/pi/dyt_code/ColorLED 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/arm-linux-gnueabihf/libthread_db.so.1".
+
+Breakpoint 1, color_led (v_iRed=1, v_iGreen=0, v_iBlue=0) at ColorLED.c:35
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+(gdb) step
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+(gdb) continue
+Continuing.
+
+Breakpoint 1, color_led (v_iRed=0, v_iGreen=1, v_iBlue=0) at ColorLED.c:35
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+(gdb) info local
+No locals.
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) n
+Program not restarted.
+(gdb) continue
+Continuing.
+
+Breakpoint 1, color_led (v_iRed=0, v_iGreen=0, v_iBlue=1) at ColorLED.c:35
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+(gdb) step      
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+(gdb) step
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+(gdb) step
+42      }
+(gdb) step
+main () at ColorLED.c:69
+69          delay(100);
+(gdb) step
+70          color_led(ON, ON, OFF);  //   1        1        0
+(gdb) step
+
+Breakpoint 1, color_led (v_iRed=1, v_iGreen=1, v_iBlue=0) at ColorLED.c:35
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+(gdb) step
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+(gdb) step
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+(gdb) step
+42      }
+(gdb) step
+main () at ColorLED.c:71
+71          delay(100);
+(gdb) step
+72          color_led(ON, OFF, ON);  //   1        0        1
+(gdb) step
+
+Breakpoint 1, color_led (v_iRed=1, v_iGreen=0, v_iBlue=1) at ColorLED.c:35
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+(gdb) step
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+(gdb) step
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+(gdb) step
+42      }
+(gdb) delete breakpoints
+Delete all breakpoints? (y or n) y
+(gdb) list 
+37        //绿色LED
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+39        
+40        //蓝色LED
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+42      }
+43
+44      /**
+45      * Function       main
+46      * @author        Danny
+(gdb)                  list 1:100
+malformed linespec error: unexpected colon
+(gdb) list 1,100
+1       /**
+2       * @par Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+3       * @file         ColorLED.c
+4       * @author       Danny
+5       * @version      V1.0
+6       * @date         2017.08.16
+7       * @brief        七彩探照灯实验
+8       * @details
+9       * @par History  见如下说明
+10      */
+11      #include <wiringPi.h>
+12
+13      #define ON 1     //使能LED
+14      #define OFF 0    //禁止LED
+15
+16      //定义引脚
+17      int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+18      int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+19      int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+20
+21      /**
+---Type <return> to continue, or q <return> to quit---
+22      * Function       color_led
+23      * @author        Danny
+24      * @date          2017.08.16
+25      * @brief         由R,G,B三色的不同组合形成7种不同的色彩
+26      * @param[in1]    Red开关
+27      * @param[in2]    Green开关
+28      * @param[in3]    Blue开关
+29      * @retval        void
+30      * @par History   无
+31      */
+32      void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+33      {
+34        //红色LED
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+36       
+37        //绿色LED
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+39        
+40        //蓝色LED
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+42      }
+---Type <return> to continue, or q <return> to quit---
+43
+44      /**
+45      * Function       main
+46      * @author        Danny
+47      * @date          2017.08.16
+48      * @brief         循环显7色LED
+49      * @param[in]     void
+50      * @retval        void
+51      * @par History   无
+52      */
+53      int main()
+54      {
+55              wiringPiSetup();
+56
+57              //RGB引脚模式设置为输出模式
+58              pinMode(LED_R, OUTPUT);
+59              pinMode(LED_G, OUTPUT);
+60              pinMode(LED_B, OUTPUT);
+61
+62              while (1)
+63              {                        //   LED_R   LED_G    LED_B
+---Type <return> to continue, or q <return> to quit---
+64          color_led(ON, OFF, OFF); //   1        0        0
+65          delay(100);
+66          color_led(OFF, ON, OFF); //   0        1        0
+67          delay(100);
+68          color_led(OFF, OFF, ON); //   0        0        1
+69          delay(100);
+70          color_led(ON, ON, OFF);  //   1        1        0
+71          delay(100);
+72          color_led(ON, OFF, ON);  //   1        0        1
+73          delay(100);
+74          color_led(OFF, ON, ON);  //   0        1        1
+75          delay(100);
+76          color_led(ON, ON, ON);   //   1        1        1
+77              }
+78         return 0;
+79      }
+(gdb) break 64
+Breakpoint 2 at 0x107a4: file ColorLED.c, line 64.
+(gdb) step
+main () at ColorLED.c:73
+73          delay(100);
+(gdb) step
+74          color_led(OFF, ON, ON);  //   0        1        1
+(gdb) step
+color_led (v_iRed=0, v_iGreen=1, v_iBlue=1) at ColorLED.c:35
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+(gdb) step
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+(gdb) step
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+(gdb) step
+42      }
+(gdb) step
+main () at ColorLED.c:75
+75          delay(100);
+(gdb) step
+76          color_led(ON, ON, ON);   //   1        1        1
+(gdb) step
+color_led (v_iRed=1, v_iGreen=1, v_iBlue=1) at ColorLED.c:35
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+(gdb) step
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+(gdb) break 64,76
+Note: breakpoint 2 also set at pc 0x107a4.
+Garbage ',76' at end of command
+(gdb) list
+33      {
+34        //红色LED
+35        v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+36       
+37        //绿色LED
+38        v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+39        
+40        //蓝色LED
+41        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+42      }
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) continue
+Continuing.
+^[[A
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) info break
+Num     Type           Disp Enb Address    What
+2       breakpoint     keep y   0x000107a4 in main at ColorLED.c:64
+        breakpoint already hit 7 times
+(gdb) continue  
+Continuing.
+
+Breakpoint 2, main () at ColorLED.c:64
+64          color_led(ON, OFF, OFF); //   1        0        0
+(gdb) info break
+Num     Type           Disp Enb Address    What
+2       breakpoint     keep y   0x000107a4 in main at ColorLED.c:64
+        breakpoint already hit 8 times
