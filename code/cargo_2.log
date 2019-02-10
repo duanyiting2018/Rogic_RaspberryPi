@@ -1,0 +1,700 @@
+﻿  //更新指定管脚的PWM值
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+"advance.c" [dos] 107L, 3126C written                 
+pi@raspberrypi:~/dyt_code $ gcc -c advance.c -o dytadv -lwiringPi -g
+advance.c:39:1: warning: data definition has no type or storage class
+ wiringPiSetup();
+ ^~~~~~~~~~~~~
+advance.c:39:1: warning: type defaults to ‘int’ in declaration of ‘wiringPiSetup’ [-Wimplicit-int]
+In file included from advance.c:12:0:
+advance.c:40:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_R, OUTPUT);
+                ^
+advance.c:41:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_G, OUTPUT);
+                ^
+advance.c:42:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_B, OUTPUT);
+                ^
+advance.c: In function ‘main’:
+advance.c:91:10: warning: implicit declaration of function ‘color_led’ [-Wimplicit-function-declaration]
+          color_led(ON, OFF, OFF); //   100
+          ^~~~~~~~~
+advance.c:91:20: error: ‘ON’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                    ^~
+advance.c:91:20: note: each undeclared identifier is reported only once for each function it appears in
+advance.c:91:24: error: ‘OFF’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                        ^~~
+pi@raspberrypi:~/dyt_code $ history |grep gcc
+  191  gcc bluetooth_control.c -o bluetooth_control -lwiringPi -lpthread
+  410  sudo gcc advance.c -o advance.c -wiringPi
+  411  sudo gcc advance.c -o advance -wiringPi
+  412  sudo gcc advance.c -o advance -lwiringPi
+  415  gcc infrared_avoid.c -o infrared_avoid -lwiringPi
+  417  gcc PS2_Control.c -o PS2_Control -lwiringPi
+  419  sudo gcc avoid_ultrasonic.c -o avoid_ultrasonic -lwringPi
+  420  sudo gcc avoid_ultrasonic.c -o avoid_ultrasonic -lwiringPi
+  421  sudo gcc infrared_follow.c -o infrared_follow -lwiringPi
+  422  sudo gcc ServoControlCorlor.c -o ServoControlCorlor -lwiringPi
+  423  sudo gcc bluetooth_control.c -o bluetooth_control -lwiringPi
+  424  sudo gcc KeyScanStart.c -o KeyScanStart -lwiringPi
+  425  sudo gcc servo_ultrasonic_avoid.c -o servo_ultrasonic_avoid -lwiringPi
+  427  sudo gcc CarRun.c -o CarRun -lwiringPi
+  428  sudo gcc light_follow.c -o light_follow -lwiringPi
+  429  sudo gcc TCP_control.c -o TCP_control -lwiringPi
+  430  sudo gcc TCP_control.c -o TCP_control -lwiringPi -lpthread
+  432  sudo gcc ColorLED.c -o ColorLED -lwiringPi
+  433  sudo gcc tracking.c -o tracking -lwiringPi
+  435  sudo gcc master_system_control.c -o master_system_control -lwiringPi
+  437  sudo gcc TCP_control.c -o TCP_control -lwiringPi
+  438  sudo gcc TCP_control.c -o TCP_control -lwiringPi -lpthread
+  445  sudo gcc servo_ultrasonic_avoid.c -o servo_ultrasonic_avoid -lwiringPi
+  449  sudo gcc bluetooth_control.c -o bluetooth_control -lwiringPi -lpthread
+  530  history |grep gcc
+  531  sudo gcc ColorLED.c -o ColorLED
+  532  sudo gcc ColorLED.c -o ColorLED -lwiringPi
+  536  sudo gcc ColorLED.c -o ColorLED -lwiringPi -g
+  590  gcc advance.py -lwiringPi -g
+  603  gcc -c advance.c -o dytadv -lwiringPi -g
+  605  gcc -c advance.c -o dytadv -lwiringPi -g
+  606  history |grep gcc
+pi@raspberrypi:~/dyt_code $ sudo gcc advance.c -o dytadv -lwiringPi -g   
+advance.c:39:1: warning: data definition has no type or storage class
+ wiringPiSetup();
+ ^~~~~~~~~~~~~
+advance.c:39:1: warning: type defaults to ‘int’ in declaration of ‘wiringPiSetup’ [-Wimplicit-int]
+In file included from advance.c:12:0:
+advance.c:40:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_R, OUTPUT);
+                ^
+advance.c:41:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_G, OUTPUT);
+                ^
+advance.c:42:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_B, OUTPUT);
+                ^
+advance.c: In function ‘main’:
+advance.c:91:10: warning: implicit declaration of function ‘color_led’ [-Wimplicit-function-declaration]
+          color_led(ON, OFF, OFF); //   100
+          ^~~~~~~~~
+advance.c:91:20: error: ‘ON’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                    ^~
+advance.c:91:20: note: each undeclared identifier is reported only once for each function it appears in
+advance.c:91:24: error: ‘OFF’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                        ^~~
+pi@raspberrypi:~/dyt_code $ vim advance.c
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+wiringPiSetup();
+pinMode(LED_R, OUTPUT);
+pinMode(LED_G, OUTPUT);
+pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+  //右电机前进
+  //更新指定管脚的PWM值
+  softPwmWrite(Right_motor_pwm, 255);   //pwm控速0-255之，左右轮略有差异
+
+  //延时
+  delay(time * 10); //delay函数默认是以ms作为单位的
+  return;
+}
+
+/**
+* Function       main
+* @author        Danny
+* @date          2017.08.16
+* @brief         先延时2s，接着前进
+* @param[in]     void
+* @retval        void
+* @par History   无
+*/
+void main()
+{
+  //wiringPi初始化
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+wiringPiSetup();
+pinMode(LED_R, OUTPUT);
+pinMode(LED_G, OUTPUT);
+pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+  //右电机前进
+"advance.c" [dos] 107L, 3134C written                 
+pi@raspberrypi:~/dyt_code $ gcc -c advance.c -o dytadv -lwiringPi -g  
+advance.c: In function ‘main’:
+advance.c:91:10: warning: implicit declaration of function ‘color_led’ [-Wimplicit-function-declaration]
+          color_led(ON, OFF, OFF); //   100
+          ^~~~~~~~~
+advance.c:91:20: error: ‘ON’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                    ^~
+advance.c:91:20: note: each undeclared identifier is reported only once for each function it appears in
+advance.c:91:24: error: ‘OFF’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                        ^~~
+pi@raspberrypi:~/dyt_code $ `3\
+> OUTPUT);~
+>                 ^
+> advance.c:41:16: error: expected ‘)’ before numeric constant
+>  pinMode(LED_G, OUTPUT);
+>                 ^
+> advance.c:42:16: error: expected ‘)’ before numeric constant
+>  pinMode(LED_B, OUTPUT);
+>                 ^
+> 
+> ^C
+pi@raspberrypi:~/dyt_code $ `3\
+OUTPUT);~
+                ^
+advance.c:41:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_G, OUTPUT);
+                ^
+advance.c:42:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_B, OUTPUT);
+                ^
+pi@raspberrypi:~/dyt_code $ gcc -c advance.c -o dytadv -lwiringPi -g
+
+
+
+
+
+
+
+
+pi@raspberrypi:~/dyt_code $ vim advance.c
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+//wiringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+  //右电机前进
+  //创建两个软件控制的PWM脚
+  //int softPwmCreate(int pin,int initialValue,int pwmRange);
+  softPwmCreate(Left_motor_pwm,0,255);
+  softPwmCreate(Right_motor_pwm,0,255);
+
+  delay(1000);     //延时2s
+
+  while(1)
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+//wiringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+  //右电机前进
+E486: Pattern not found: void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+E486: Pattern not found: void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+  //绿色LED
+  //  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+  //    
+  //      //蓝色LED
+  //        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+  //        }
+  //创建两个软件控制的PWM脚
+  //int softPwmCreate(int pin,int initialValue,int pwmRange);
+  softPwmCreate(Left_motor_pwm,0,255);
+  softPwmCreate(Right_motor_pwm,0,255);
+
+  delay(1000);     //延时2s
+
+  while(1)
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+N ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+  //绿色LED
+  //  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+  //    
+  //      //蓝色LED
+  //        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+  //        }
+  //
+/ringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+  //创建两个软件控制的PWM脚
+  //int softPwmCreate(int pin,int initialValue,int pwmRange);
+  softPwmCreate(Left_motor_pwm,0,255);
+  softPwmCreate(Right_motor_pwm,0,255);
+
+  delay(1000);     //延时2s
+
+  while(1)
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;  //LED_R接在Raspberry上的wiringPi编码3口
+int LED_G = 2;  //LED_G接在Raspberry上的wiringPi编码2口
+int LED_B = 5;  //LED_B接在Raspberry上的wiringPi编码5口
+
+N ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+  //绿色LED
+  //  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+  //    
+  //      //蓝色LED
+  //        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+  //        }
+  //
+/ringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+  //创建两个软件控制的PWM脚
+  //int softPwmCreate(int pin,int initialValue,int pwmRange);
+  softPwmCreate(Left_motor_pwm,0,255);
+  softPwmCreate(Right_motor_pwm,0,255);
+
+  delay(1000);     //延时2s
+
+  while(1)
+         color_led(OFF, ON, ON);  //   011
+  }
+  return;
+  return;
+  while(1)
+  //      //蓝色LED
+  //        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+  //      //蓝色LED
+  //      //蓝色LED
+  //      //蓝色LED
+  //      //蓝色LED
+  //    
+  //      //蓝色LED
+  //        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+  //        }
+  //        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+  //        }
+  //
+/ringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+  //右电机前进
+  digitalWrite(Right_motor_go, HIGH);   //右电机前进使能
+  digitalWrite(Right_motor_back, LOW);  //右电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Right_motor_pwm, 255);   //pwm控速0-255之，左右轮略有差异
+
+int LED_R = 3;
+int LED_G = 2;
+int LED_B = 5;
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+           v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+
+  //绿色LED
+  //  v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+  //    
+  //      //蓝色LED
+  //        v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+  //        }
+  //        }
+  //
+/ringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+
+"advance.c" [dos] 117L, 3361C written                 
+pi@raspberrypi:~/dyt_code $ `3\          
+OUTPUT);~
+                ^
+advance.c:41:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_G, OUTPUT);
+                ^
+advance.c:42:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_B, OUTPUT);
+                ^
+^C
+pi@raspberrypi:~/dyt_code $ `3\          
+OUTPUT);~
+                ^
+advance.c:41:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_G, OUTPUT);
+                ^
+advance.c:42:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_B, OUTPUT);
+                ^
+^C
+pi@raspberrypi:~/dyt_code $ `3\          
+OUTPUT);~
+                ^
+advance.c:41:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_G, OUTPUT);
+                ^
+advance.c:42:16: error: expected ‘)’ before numeric constant
+ pinMode(LED_B, OUTPUT);
+                ^
+pi@raspberrypi:~/dyt_code $ gcc -c advance.c -o dytadv -lwiringPi -g
+
+
+
+
+
+
+
+
+pi@raspberrypi:~/dyt_code $ sudo gcc advance.c -o dytadv -lwiringPi -g
+advance.c: In function ‘color_led’:
+advance.c:41:15: error: ‘ON’ undeclared (first use in this function)
+     v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+               ^~
+advance.c:41:15: note: each undeclared identifier is reported only once for each function it appears in
+advance.c: In function ‘main’:
+advance.c:101:20: error: ‘ON’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                    ^~
+advance.c:101:24: error: ‘OFF’ undeclared (first use in this function)
+          color_led(ON, OFF, OFF); //   100
+                        ^~~
+pi@raspberrypi:~/dyt_code $ vim advance.c
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+           v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+//ringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+int Right_motor_go = 24;      //右电机前进BIN2连接Raspberry的wiringPi编码24口
+int Right_motor_go = 24;      //右电机前进BIN2连接Raspberry的wiringPi编码24口
+int Left_motor_pwm = 27;      //左电机控速PWMA连接Raspberry的wiringPi编码27口
+"advance.c" [dos] 119L, 3421C written                 
+pi@raspberrypi:~/dyt_code $ sudo gcc advance.c -o dytadv -lwiringPi -g
+pi@raspberrypi:~/dyt_code $ vim advance.c
+/**
+* @par Copyright (C): 2010-2019, Shenzhen Yahboom Tech
+* @file         advance.c
+* @author       Martin
+* @version      V1.0
+* @date         2019.02.10
+* @brief        小车前进实验
+* @details
+* @par History  见如下说明
+*
+*/
+#include <wiringPi.h>
+#include <softPwm.h>
+
+#define ON 1     //使能LED
+#define OFF 0    //禁止LED
+//定义引脚
+int Left_motor_go = 28;       //左电机前进AIN2连接Raspberry的wiringPi编码28口
+int Left_motor_back = 29;     //左电机后退AIN1连接Raspberry的wiringPi编码29口
+
+int Right_motor_go = 24;      //右电机前进BIN2连接Raspberry的wiringPi编码24口
+int Right_motor_back = 25;    //右电机后退BIN1连接Raspberry的wiringPi编码25口
+
+int Left_motor_pwm = 27;      //左电机控速PWMA连接Raspberry的wiringPi编码27口
+int Right_motor_pwm = 23;     //右电机控速PWMB连接Raspberry的wiringPi编码23口
+
+/**
+* Function       run
+* @author        Danny
+* @date          2017.08.16
+* @brief         小车前进
+* @param[in]     time延时时间
+* @param[out]    void
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;
+int LED_G = 2;
+int LED_B = 5;
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+{
+          //红色LED
+           v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+          //     //绿色LED
+           v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+          //           //蓝色LED
+           v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+//ringPiSetup();
+//pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+  //右电机前进
+  digitalWrite(Right_motor_go, HIGH);   //右电机前进使能
+  digitalWrite(Right_motor_back, LOW);  //右电机后退禁止
+  //更新指定管脚的PWM值
+/**
+* Function       run
+* @author        Danny
+* @date          2017.08.16
+* @brief         小车前进
+* @param[in]     time延时时间
+* @param[out]    void
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;
+int LED_G = 2;
+int LED_B = 5;
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+           v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+* @details
+* @par History  见如下说明
+*
+*/
+#include <wiringPi.h>
+#include <softPwm.h>
+
+#define ON 1     //使能LED
+#define OFF 0    //禁止LED
+//定义引脚
+int Left_motor_go = 28;       //左电机前进AIN2连接Raspberry的wiringPi编码28口
+int Left_motor_back = 29;     //左电机后退AIN1连接Raspberry的wiringPi编码29口
+
+int Right_motor_go = 24;      //右电机前进BIN2连接Raspberry的wiringPi编码24口
+int Right_motor_back = 25;    //右电机后退BIN1连接Raspberry的wiringPi编码25口
+
+int Left_motor_pwm = 27;      //左电机控速PWMA连接Raspberry的wiringPi编码27口
+int Right_motor_pwm = 23;     //右电机控速PWMB连接Raspberry的wiringPi编码23口
+
+/**
+* Function       run
+/**
+* Function       run
+* @author        Danny
+* @date          2017.08.16
+* @brief         小车前进
+* @param[in]     time延时时间
+* @param[out]    void
+* @retval        void
+* @par History   无
+*/
+int LED_R = 3;
+int LED_G = 2;
+int LED_B = 5;
+void color_led(int v_iRed, int v_iGreen, int v_iBlue)
+           v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+           v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+wiringPiSetup();
+pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  digitalWrite(Left_motor_back, LOW);   //左电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Left_motor_pwm, 255);    //pwm控速0-255之，左右轮略有差异
+
+  //右电机前进
+  digitalWrite(Right_motor_go, HIGH);   //右电机前进使能
+  digitalWrite(Right_motor_back, LOW);  //右电机后退禁止
+  //更新指定管脚的PWM值
+  digitalWrite(Right_motor_back, LOW);  //右电机后退禁止
+  //更新指定管脚的PWM值
+  softPwmWrite(Right_motor_pwm, 255);   //pwm控速0-255之，左右轮略有差异
+
+  //延时
+  delay(time * 10); //delay函数默认是以ms作为单位的
+  return;
+}
+
+/**
+* Function       main
+* @author        Danny
+* @date          2017.08.16
+* @brief         先延时2s，接着前进
+* @param[in]     void
+* @retval        void
+* @par History   无
+*/
+void main()
+{
+  //wiringPi初始化
+{
+  //wiringPi初始化
+  wiringPiSetup();
+
+  //初始化电机驱动IO口为输出方式
+  pinMode(Left_motor_go, OUTPUT);
+  pinMode(Left_motor_back, OUTPUT);
+  pinMode(Right_motor_go, OUTPUT);
+  pinMode(Right_motor_back, OUTPUT);
+
+  //创建两个软件控制的PWM脚
+  //int softPwmCreate(int pin,int initialValue,int pwmRange);
+  softPwmCreate(Left_motor_pwm,0,255);
+  softPwmCreate(Right_motor_pwm,0,255);
+
+  delay(1000);     //延时2s
+
+  while(1)
+         delay(100);
+  //pinMode(LED_G, OUTPUT);
+
+  softPwmWrite(Right_motor_pwm, 255);   //pwm控速0-255之，左右轮略有差异
+
+  //延时
+  delay(time * 10); //delay函数默认是以ms作为单位的
+  return;
+}
+
+/**
+* Function       main
+* @author        Danny
+* @date          2017.08.16
+* @brief         先延时2s，接着前进
+* @param[in]     void
+* @retval        void
+* @par History   无
+*/
+void main()
+{
+  //wiringPi初始化
+  wiringPiSetup();
+
+  pinMode(LED_R, OUTPUT);
+  pinMode(LED_G, OUTPUT);
+  pinMode(LED_B, OUTPUT);
+  初始化电机驱动IO口为输出方式
+  pinMode(Left_motor_go, OUTPUT);
+  pinMode(Left_motor_back, OUTPUT);
+  pinMode(Right_motor_go, OUTPUT);
+  pinMode(Right_motor_back, OUTPUT);
+
+  //创建两个软件控制的PWM脚
+  //int softPwmCreate(int pin,int initialValue,int pwmRange);
+  softPwmCreate(Left_motor_pwm,0,255);
+  softPwmCreate(Right_motor_pwm,0,255);
+
+  delay(1000);     //延时2s
+
+  while(1)
+  {
+         color_led(ON, OFF, OFF); //   100
+         delay(100);
+         color_led(OFF, ON, OFF); //   010
+         delay(100);
+         color_led(OFF, OFF, ON); //   001
+         delay(100);
+         color_led(ON, ON, OFF);  //   110
+         delay(100);
+         color_led(ON, OFF, ON);  //   101
+         delay(100);
+{
+          //红色LED
+           v_iRed == ON ? digitalWrite(LED_R, HIGH): digitalWrite(LED_R, LOW);
+
+          //     //绿色LED
+           v_iGreen == ON ? digitalWrite(LED_G, HIGH) : digitalWrite(LED_G, LOW);
+
+          //           //蓝色LED
+           v_iBlue == ON ? digitalWrite(LED_B, HIGH) : digitalWrite(LED_B, LOW);
+}
+wiringPiSetup();
+pinMode(LED_R, OUTPUT);
+//pinMode(LED_G, OUTPUT);
+//pinMode(LED_B, OUTPUT);
+void run(int time)
+}
+{
+  //左电机前进
+  digitalWrite(Left_motor_go, HIGH);    //左电机前进使能
+  //更新指定管脚的PWM值
+"advance.c" [dos] 122L, 3504C written                 
+pi@raspberrypi:~/dyt_code $ sudo gcc advance.c -o dytadv -lwiringPi -g
+pi@raspberrypi:~/dyt_code $ ./dytadv
+^C
