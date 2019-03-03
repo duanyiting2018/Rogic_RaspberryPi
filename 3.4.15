@@ -1,0 +1,419 @@
+﻿pi@raspberrypi:~ $ ls
+Desktop     mjpg-streamer-master  python         tools
+Documents   Music                 python_games   t_printf
+Downloads   myfile.txt            SmartCar       Videos
+dyt_code    Pictures              Templates      wiringPi-8d188fa
+master.zip  Public                test_printf.c  wiringPi-8d188fa.tar.gz
+pi@raspberrypi:~ $ echo $((5*6))
+30
+pi@raspberrypi:~ $ echo echo mine#include<iostream>
+-bash: syntax error near unexpected token `newline'
+pi@raspberrypi:~ $ using namespace std;
+-bash: using: command not found
+pi@raspberrypi:~ $ int main()
+-bash: syntax error near unexpected token `('
+pi@raspberrypi:~ $ echo echo $((...))or text>... > t.txt
+-bash: ...: syntax error: operand expected (error token is "...")
+pi@raspberrypi:~ $ 
+pi@raspberrypi:~ $ echo I am add the file > t.txt                             
+pi@raspberrypi:~ $ cat t.txt
+I am add the file
+pi@raspberrypi:~ $ grep I am add the file t.txt
+grep: am: No such file or directory
+grep: add: No such file or directory
+grep: the: No such file or directory
+grep: file: No such file or directory
+t.txt:I am add the file
+pi@raspberrypi:~ $ #include<iostream>
+pi@raspberrypi:~ $ using namespace std;
+-bash: using: command not found
+pi@raspberrypi:~ $ int main()
+-bash: syntax error near unexpected token `('
+pi@raspberrypi:~ $ grep I am add the txt t.txt 
+grep: am: No such file or directory
+grep: add: No such file or directory
+grep: the: No such file or directory
+grep: txt: No such file or directory
+t.txt:I am add the file
+pi@raspberrypi:~ $ grep add t.txt             
+I am add the file
+pi@raspberrypi:~ $ head myfile.txt
+The vi text editor is a very powerful text editor.
+But it is not easy to use this editor.
+This exercise should help you understand the basic commands.
+
+pi@raspberrypi:~ $ tail myfile.txt
+The vi text editor is a very powerful text editor.
+But it is not easy to use this editor.
+This exercise should help you understand the basic commands.
+
+pi@raspberrypi:~ $ dpkg -list
+dpkg: error: conflicting actions -i (--install) and -l (--list)
+
+Type dpkg --help for help about installing and deinstalling packages [*];
+Use 'apt' or 'aptitude' for user-friendly package management;
+Type dpkg -Dhelp for a list of dpkg debug flag values;
+Type dpkg --force-help for a list of forcing options;
+Type dpkg-deb --help for help about manipulating *.deb files;
+
+Options marked [*] produce a lot of output - pipe it through 'less' or 'more' !
+pi@raspberrypi:~ $ top
+top - 07:30:07 up 13 min,  3 users,  load average: 0.38, 0.35, 0.28
+Tasks: 151 total,   2 running, 149 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.1 us,  1.7 sy,  0.0 ni, 87.1 id,  2.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem :   896800 total,   631352 free,    94380 used,   171068 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738912 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  35.3  0.5   4:02.24 mjpg_streamer
+  568 root      20   0   43944    592    484 R  11.8  0.1   1:31.65 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R  11.8  0.4   0:00.04 top          
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.57 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.24 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+   11 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/0      
+top - 07:30:10 up 13 min,  3 users,  load average: 0.35, 0.34, 0.28
+Tasks: 151 total,   2 running, 149 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.9 us,  2.1 sy,  0.0 ni, 88.9 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94352 used,   171160 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.1  0.5   4:03.18 mjpg_streamer
+  568 root      20   0   43944    592    484 R  11.6  0.1   1:32.00 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.06 top          
+    1 root      20   0    9604   5924   4808 S   0.3  0.7   0:01.58 systemd      
+    7 root      20   0       0      0      0 S   0.3  0.0   0:00.25 rcu_sched    
+  290 systemd+  20   0   17276   3700   3304 S   0.3  0.4   0:00.26 systemd-time+
+  490 dnsmasq   20   0    9080   1684   1332 S   0.3  0.2   0:00.10 dnsmasq      
+  846 pi        20   0  148212  23624  19880 S   0.3  2.6   0:02.12 lxpanel      
+ 1050 root      20   0       0      0      0 S   0.3  0.0   0:00.25 kworker/u8:1 
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+top - 07:30:13 up 13 min,  3 users,  load average: 0.40, 0.35, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.8 us,  3.0 sy,  0.0 ni, 88.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94352 used,   171160 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  30.8  0.5   4:04.11 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.3  0.1   1:32.34 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.08 top          
+  854 pi        20   0  139764  23736  20004 S   0.3  2.6   0:02.10 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+top - 07:30:16 up 13 min,  3 users,  load average: 0.40, 0.35, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.0 us,  2.4 sy,  0.0 ni, 88.5 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94352 used,   171160 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.4  0.5   4:05.06 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.6  0.1   1:32.69 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.10 top          
+  846 pi        20   0  148212  23624  19880 S   0.3  2.6   0:02.13 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+top - 07:30:19 up 13 min,  3 users,  load average: 0.37, 0.35, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.8 us,  3.0 sy,  0.0 ni, 88.2 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94352 used,   171160 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.8  0.5   4:06.02 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.6  0.1   1:33.04 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.12 top          
+  854 pi        20   0  139764  23736  20004 S   0.3  2.6   0:02.11 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+top - 07:30:22 up 13 min,  3 users,  load average: 0.37, 0.35, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.0 us,  2.1 sy,  0.0 ni, 88.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94352 used,   171160 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.1  0.5   4:06.96 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.9  0.1   1:33.40 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.14 top          
+  164 root      20   0       0      0      0 S   0.3  0.0   0:00.22 kworker/3:2  
+  245 root      20   0       0      0      0 S   0.3  0.0   0:00.11 brcmf_wdog/m+
+  846 pi        20   0  148212  23624  19880 S   0.3  2.6   0:02.14 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+top - 07:30:25 up 13 min,  3 users,  load average: 0.34, 0.34, 0.28
+Tasks: 151 total,   2 running, 149 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.0 us,  2.4 sy,  0.0 ni, 88.5 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94352 used,   171160 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  30.5  0.5   4:07.88 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.6  0.1   1:33.75 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.16 top          
+  854 pi        20   0  139764  23736  20004 S   0.3  2.6   0:02.12 lxpanel      
+ 1027 pi        20   0   11664   3424   2668 S   0.3  0.4   0:00.12 sshd         
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 R   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+top - 07:30:28 up 13 min,  3 users,  load average: 0.31, 0.33, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.9 us,  2.5 sy,  0.0 ni, 88.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94352 used,   171160 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  30.0  0.5   4:08.79 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.6  0.1   1:34.10 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.18 top          
+  846 pi        20   0  148212  23624  19880 S   0.3  2.6   0:02.15 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+top - 07:30:31 up 13 min,  3 users,  load average: 0.31, 0.33, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.0 us,  2.5 sy,  0.0 ni, 88.5 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94348 used,   171164 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738948 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  30.8  0.5   4:09.72 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.6  0.1   1:34.45 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.20 top          
+  126 root      20   0       0      0      0 S   0.3  0.0   0:00.19 kworker/u8:2 
+  854 pi        20   0  139764  23736  20004 S   0.3  2.6   0:02.13 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+top - 07:30:34 up 13 min,  3 users,  load average: 0.37, 0.35, 0.28
+Tasks: 151 total,   3 running, 148 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.9 us,  2.5 sy,  0.0 ni, 88.5 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94348 used,   171164 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738948 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.8  0.5   4:10.68 mjpg_streamer
+  568 root      20   0   43944    592    484 R  11.6  0.1   1:34.80 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.22 top          
+   87 root     -51   0       0      0      0 S   0.3  0.0   0:00.27 irq/92-mmc1  
+  846 pi        20   0  148212  23624  19880 S   0.3  2.6   0:02.16 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.25 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+top - 07:30:37 up 13 min,  3 users,  load average: 0.37, 0.35, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.7 us,  2.5 sy,  0.0 ni, 88.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94348 used,   171164 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738948 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.0  0.5   4:11.62 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.9  0.1   1:35.16 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.24 top          
+    7 root      20   0       0      0      0 S   0.3  0.0   0:00.26 rcu_sched    
+  486 root      20   0  139592  34740  24636 S   0.3  3.9   0:00.72 Xorg         
+  854 pi        20   0  139764  23736  20004 S   0.3  2.6   0:02.14 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+top - 07:30:40 up 13 min,  3 users,  load average: 0.42, 0.36, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.1 us,  2.4 sy,  0.0 ni, 88.4 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94348 used,   171164 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738948 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.1  0.5   4:12.56 mjpg_streamer
+  568 root      20   0   43944    592    484 S  10.9  0.1   1:35.49 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.26 top          
+  290 systemd+  20   0   17276   3700   3304 S   0.3  0.4   0:00.27 systemd-time+
+  846 pi        20   0  148212  23624  19880 S   0.3  2.6   0:02.17 lxpanel      
+  854 pi        20   0  139764  23736  20004 S   0.3  2.6   0:02.15 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.26 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+top - 07:30:43 up 13 min,  3 users,  load average: 0.39, 0.35, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.7 us,  2.5 sy,  0.0 ni, 88.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94348 used,   171164 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738948 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  30.8  0.5   4:13.49 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.9  0.1   1:35.85 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.28 top          
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.26 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+   11 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/0      
+top - 07:30:46 up 13 min,  3 users,  load average: 0.39, 0.35, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.0 us,  1.7 sy,  0.0 ni, 89.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94348 used,   171164 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738948 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.0  0.5   4:14.43 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.2  0.1   1:36.19 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.30 top          
+  603 pi        20   0   15996   6284   3400 S   0.3  0.7   0:00.32 Xtightvnc    
+  846 pi        20   0  148212  23624  19880 S   0.3  2.6   0:02.18 lxpanel      
+  854 pi        20   0  139764  23736  20004 S   0.3  2.6   0:02.16 lxpanel      
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.26 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+top - 07:30:49 up 13 min,  3 users,  load average: 0.35, 0.34, 0.28
+Tasks: 151 total,   1 running, 150 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  9.0 us,  1.7 sy,  0.0 ni, 89.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   896800 total,   631288 free,    94348 used,   171164 buff/cache
+KiB Swap:   102396 total,   102396 free,        0 used.   738948 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND      
+  575 root      20   0   24576   4364   3700 S  31.8  0.5   4:15.39 mjpg_streamer
+  568 root      20   0   43944    592    484 S  11.6  0.1   1:36.54 bluetooth_co+
+ 1061 pi        20   0    8104   3208   2732 R   0.7  0.4   0:00.32 top          
+  126 root      20   0       0      0      0 S   0.3  0.0   0:00.20 kworker/u8:2 
+  164 root      20   0       0      0      0 S   0.3  0.0   0:00.23 kworker/3:2  
+    1 root      20   0    9604   5924   4808 S   0.0  0.7   0:01.58 systemd      
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd     
+    3 root      20   0       0      0      0 S   0.0  0.0   0:00.02 ksoftirqd/0  
+    4 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kworker/0:0  
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H 
+    6 root      20   0       0      0      0 S   0.0  0.0   0:00.17 kworker/u8:0 
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.26 rcu_sched    
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh       
+    9 root      rt   0       0      0      0 S   0.0  0.0   0:00.00 migration/0  
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+pi@raspberrypi:~ $ ps
+  PID TTY          TIME CMD
+ 1030 pts/0    00:00:00 bash
+ 1062 pts/0    00:00:00 ps
+pi@raspberrypi:~ $ sudo df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       7.0G  4.3G  2.5G  64% /
+devtmpfs        434M     0  434M   0% /dev
+tmpfs           438M     0  438M   0% /dev/shm
+tmpfs           438M   12M  427M   3% /run
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           438M     0  438M   0% /sys/fs/cgroup
+/dev/mmcblk0p1   42M   21M   21M  51% /boot
+tmpfs            88M     0   88M   0% /run/user/1000
+pi@raspberrypi:~ $ sudo ifconfig
+eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 192.168.1.99  netmask 255.255.255.0  broadcast 192.168.1.255
+        ether b8:27:eb:9c:af:90  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 4814  bytes 324462 (316.8 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 4814  bytes 324462 (316.8 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.1  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::ba27:ebff:fec9:fac5  prefixlen 64  scopeid 0x20<link>
+        ether b8:27:eb:c9:fa:c5  txqueuelen 1000  (Ethernet)
+        RX packets 5095  bytes 351083 (342.8 KiB)
+        RX errors 0  dropped 1  overruns 0  frame 0
+        TX packets 690  bytes 130758 (127.6 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+pi@raspberrypi:~ $ hostname -I
+192.168.1.99 192.168.0.1 

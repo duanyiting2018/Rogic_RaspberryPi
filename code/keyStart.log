@@ -1,0 +1,13 @@
+﻿pi@raspberrypi:~/SmartCar $ gcc KeyScanStart.c -o kss lwiringPi -g
+gcc: error: lwiringPi: No such file or directory
+pi@raspberrypi:~/SmartCar $ gcc KeyScanStart.c -o kss lwiringPi -lpthread
+gcc: error: lwiringPi: No such file or directory
+pi@raspberrypi:~/SmartCar $ gcc KeyScanStart.c -o kss -lwiringPi -lpthread
+pi@raspberrypi:~/SmartCar $ ./kss
+^C
+pi@raspberrypi:~/SmartCar $ ./kss
+^C
+pi@raspberrypi:~/SmartCar $ ./kss
+^C
+pi@raspberrypi:~/SmartCar $ ./kss
+^C
