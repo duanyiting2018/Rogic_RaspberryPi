@@ -1,0 +1,318 @@
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ r=1+2
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ echo $result
+
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ v=1
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ echo $(($v+(6*2)))
+13
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ cd /usr/local/dyt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ vim code.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim code.c
+[sudo] password for duanyiting:
+Sorry, try again.
+[sudo] password for duanyiting:
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc code.c
+
+Command 'gcc' not found, but can be installed with:
+
+sudo apt install gcc
+
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo apt install gcc
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales gcc-multilib make autoconf automake libtool flex bison gdb gcc-doc gcc-7-multilib gcc-7-doc libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg glibc-doc
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 26.9 MB of archives.
+After this operation, 115 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-20ubuntu2~18.04 [193 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-20ubuntu2~18.04 [503 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-20ubuntu2~18.04 [1854 kB]
+4% [3 binutils-x86-64-linux-gnu 47.8 kB/1854 kB 3%]
+Ign:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-20ubuntu2~18.04
+Get:4 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-20ubuntu2~18.04 [3388 B]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/main amd64 gcc-7-base amd64 7.3.0-16ubuntu3 [18.8 kB]
+Get:3 http://security.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-20ubuntu2~18.04 [1854 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic/main amd64 cpp-7 amd64 7.3.0-16ubuntu3 [6734 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic/main amd64 cpp amd64 4:7.3.0-3ubuntu2 [27.5 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic/main amd64 libcc1-0 amd64 8-20180414-1ubuntu2 [39.5 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgomp1 amd64 8-20180414-1ubuntu2 [76.8 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic/main amd64 libitm1 amd64 8-20180414-1ubuntu2 [28.1 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic/main amd64 libatomic1 amd64 8-20180414-1ubuntu2 [9084 B]
+Get:14 http://archive.ubuntu.com/ubuntu bionic/main amd64 libasan4 amd64 7.3.0-16ubuntu3 [359 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic/main amd64 liblsan0 amd64 8-20180414-1ubuntu2 [133 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/main amd64 libtsan0 amd64 8-20180414-1ubuntu2 [289 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic/main amd64 libubsan0 amd64 7.3.0-16ubuntu3 [126 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic/main amd64 libcilkrts5 amd64 7.3.0-16ubuntu3 [42.5 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic/main amd64 libmpx2 amd64 8-20180414-1ubuntu2 [11.7 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic/main amd64 libquadmath0 amd64 8-20180414-1ubuntu2 [134 kB]
+Get:21 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgcc-7-dev amd64 7.3.0-16ubuntu3 [2378 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic/main amd64 gcc-7 amd64 7.3.0-16ubuntu3 [7445 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic/main amd64 gcc amd64 4:7.3.0-3ubuntu2 [5192 B]
+Get:24 http://archive.ubuntu.com/ubuntu bionic/main amd64 libc-dev-bin amd64 2.27-3ubuntu1 [71.8 kB]
+Ign:25 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+Get:26 http://archive.ubuntu.com/ubuntu bionic/main amd64 libc6-dev amd64 2.27-3ubuntu1 [2587 kB]
+Err:25 http://security.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+  404  Not Found [IP: 91.189.88.152 80]
+Get:27 http://archive.ubuntu.com/ubuntu bionic/main amd64 manpages-dev all 4.15-1 [2217 kB]
+Fetched 25.8 MB in 3min 25s (126 kB/s)
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_4.15.0-29.31_amd64.deb  404  Not Found [IP: 91.189.88.152 80]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc code.c
+
+Command 'gcc' not found, but can be installed with:
+
+sudo apt install gcc
+
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo apt install gcc
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales gcc-multilib make autoconf automake libtool flex bison gdb gcc-doc gcc-7-multilib gcc-7-doc libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg glibc-doc
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 987 kB/26.9 MB of archives.
+After this operation, 115 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Ign:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+Err:1 http://security.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+  404  Not Found [IP: 91.189.88.161 80]
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_4.15.0-29.31_amd64.deb  404  Not Found [IP: 91.189.88.161 80]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo apt install gcc --fix-missing
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales gcc-multilib make autoconf automake libtool flex bison gdb gcc-doc gcc-7-multilib gcc-7-doc libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg glibc-doc
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 987 kB/26.9 MB of archives.
+After this operation, 115 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Ign:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+Err:1 http://security.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+  404  Not Found [IP: 91.189.88.161 80]
+Unable to correct missing packages.
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_4.15.0-29.31_amd64.deb  404  Not Found [IP: 91.189.88.161 80]
+E: Aborting install.
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo apt install gcc --fix-missing
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales gcc-multilib make autoconf automake libtool flex bison gdb gcc-doc gcc-7-multilib gcc-7-doc libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg glibc-doc
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcilkrts5
+  libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0 linux-libc-dev manpages-dev
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 987 kB/26.9 MB of archives.
+After this operation, 115 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Ign:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+Err:1 http://security.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-29.31
+  404  Not Found [IP: 91.189.88.161 80]
+Unable to correct missing packages.
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_4.15.0-29.31_amd64.deb  404  Not Found [IP: 91.189.88.161 80]
+E: Aborting install.
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo apt-fast install gcc-7 g++-7
+sudo: apt-fast: command not found
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo apt-get update
+Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+Get:6 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [283 kB]
+Get:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [104 kB]
+Ign:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en
+Get:8 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [4296 B]
+Get:9 http://security.ubuntu.com/ubuntu bionic-security/restricted Translation-en [2192 B]
+Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [128 kB]
+Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [128 kB]
+Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [128 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [8570 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic/universe Translation-en [4941 kB]
+61% [5 Packages store 0 B] [11 Translation-en 226 kB/4941 kB 5%] [10 Packages 115 kB/128 kB 90%]62% [5 Packages store 0 B] [11 TranslaGet:12 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [151 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic/multiverse Translation-en [108 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [558 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/main Translation-en [207 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [6996 B]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/restricted Translation-en [3076 B]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [744 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/universe Translation-en [194 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [6424 B]
+Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse Translation-en [3452 B]
+Get:22 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [1024 B]
+Get:23 http://archive.ubuntu.com/ubuntu bionic-backports/main Translation-en [448 B]
+Get:24 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [3468 B]
+Get:25 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [1604 B]
+Get:26 http://security.ubuntu.com/ubuntu bionic-security/universe Translation-en [71.8 kB]
+Get:27 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [3748 B]
+Get:28 http://security.ubuntu.com/ubuntu bionic-security/multiverse Translation-en [1952 B]
+Get:7 http://security.ubuntu.com/ubuntu bionic-security/main Translation-en [104 kB]
+Fetched 7982 kB in 4min 26s (30.1 kB/s)
+Reading package lists... Done
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo apt install gcc
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libfreetype6
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc-7 gcc-7-base gcc-8-base libasan4 libatomic1 libbinutils
+  libc-dev-bin libc6-dev libcc1-0 libcilkrts5 libgcc-7-dev libgcc1 libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0
+  libstdc++6 libtsan0 libubsan0 linux-libc-dev manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales gcc-multilib make autoconf automake libtool flex bison gdb gcc-doc gcc-7-multilib gcc-7-doc
+  libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg
+  libmpx2-dbg libquadmath0-dbg glibc-doc
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 gcc gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin
+  libc6-dev libcc1-0 libcilkrts5 libgcc-7-dev libgomp1 libisl19 libitm1 liblsan0 libmpc3 libmpx2 libquadmath0 libtsan0 libubsan0
+  linux-libc-dev manpages-dev
+The following packages will be upgraded:
+  gcc-8-base libgcc1 libstdc++6
+3 upgraded, 27 newly installed, 0 to remove and 170 not upgraded.
+Need to get 21.9 MB/27.3 MB of archives.
+After this operation, 115 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-8-base amd64 8.2.0-1ubuntu2~18.04 [18.3 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++6 amd64 8.2.0-1ubuntu2~18.04 [398 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc1 amd64 1:8.2.0-1ubuntu2~18.04 [40.7 kB]
+Err:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc1 amd64 1:8.2.0-1ubuntu2~18.04
+  Connection failed [IP: 91.189.88.162 80]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04 [193 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04 [502 kB]
+24% [5 libbinutils 180 kB/502 kB 36%]                                                                            2808 B/s 2h 5min 10s
+Get:6 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04 [1855 kB]
+Err:6 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04
+  Connection failed [IP: 91.189.88.152 80]
+Get:7 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04 [3392 B]
+Get:8 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.3.0-27ubuntu1~18.04 [18.9 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.3.0-27ubuntu1~18.04 [6738 kB]
+33% [9 cpp-7 2325 kB/6738 kB 35%]                                                                                3883 B/s 1h 19min 3s
+Get:9 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.3.0-27ubuntu1~18.04 [6738 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.3.0-27ubuntu1~18.04 [6738 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.3.0-3ubuntu2.1 [27.6 kB]
+Get:11 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.2.0-1ubuntu2~18.04 [39.5 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.2.0-1ubuntu2~18.04 [76.4 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.2.0-1ubuntu2~18.04 [28.1 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.2.0-1ubuntu2~18.04 [9064 B]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.3.0-27ubuntu1~18.04 [358 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.2.0-1ubuntu2~18.04 [132 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.2.0-1ubuntu2~18.04 [288 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.3.0-27ubuntu1~18.04 [126 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.3.0-27ubuntu1~18.04 [42.5 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.2.0-1ubuntu2~18.04 [11.7 kB]
+Get:21 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.2.0-1ubuntu2~18.04 [133 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.3.0-27ubuntu1~18.04 [2380 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.3.0-27ubuntu1~18.04 [7455 kB]
+Get:24 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.3.0-3ubuntu2.1 [5184 B]
+Get:25 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-46.49 [998 kB]
+Fetched 15.3 MB in 9min 32s (26.8 kB/s)
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-8/libgcc1_8.2.0-1ubuntu2~18.04_amd64.deb  Connection failed [IP: 91.189.88.162 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04_amd64.deb  ConPreparing to unpack .../26-manpages-dev_4.15-1_all.deb ...
+Unpacking manpages-dev (4.15-1) ...
+Setting up libquadmath0:amd64 (8.2.0-1ubuntu2~18.04) ...
+Setting up libgomp1:amd64 (8.2.0-1ubuntu2~18.04) ...
+Setting up libatomic1:amd64 (8.2.0-1ubuntu2~18.04) ...
+Setting up libcc1-0:amd64 (8.2.0-1ubuntu2~18.04) ...
+Setting up libtsan0:amd64 (8.2.0-1ubuntu2~18.04) ...
+Setting up linux-libc-dev:amd64 (4.15.0-46.49) ...
+Setting up liblsan0:amd64 (8.2.0-1ubuntu2~18.04) ...
+Setting up gcc-7-base:amd64 (7.3.0-27ubuntu1~18.04) ...
+Setting up binutils-common:amd64 (2.30-21ubuntu1~18.04) ...
+Setting up libmpx2:amd64 (8.2.0-1ubuntu2~18.04) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for man-db (2.8.3-2) ...
+Setting up libmpc3:amd64 (1.1.0-1) ...
+Setting up libc-dev-bin (2.27-3ubuntu1) ...
+Setting up manpages-dev (4.15-1) ...
+Setting up libc6-dev:amd64 (2.27-3ubuntu1) ...
+Setting up libitm1:amd64 (8.2.0-1ubuntu2~18.04) ...
+Setting up libisl19:amd64 (0.19-1) ...
+Setting up libasan4:amd64 (7.3.0-27ubuntu1~18.04) ...
+Setting up libbinutils:amd64 (2.30-21ubuntu1~18.04) ...
+Setting up libcilkrts5:amd64 (7.3.0-27ubuntu1~18.04) ...
+Setting up libubsan0:amd64 (7.3.0-27ubuntu1~18.04) ...
+Setting up libgcc-7-dev:amd64 (7.3.0-27ubuntu1~18.04) ...
+Setting up cpp-7 (7.3.0-27ubuntu1~18.04) ...
+Setting up binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04) ...
+Setting up cpp (4:7.3.0-3ubuntu2.1) ...
+Setting up binutils (2.30-21ubuntu1~18.04) ...
+Setting up gcc-7 (7.3.0-27ubuntu1~18.04) ...
+Setting up gcc (4:7.3.0-3ubuntu2.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc code.c
+/usr/bin/ld: cannot open output file a.out: Permission denied
+collect2: error: ld returned 1 exit status
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc code.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ echo $?
+0
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls
+a.out  code.c  test.txt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ cat code.c
+int main(void)
+{
+         int a,b,c;
+         a=6;
+         b=5;
+         c=6*5;
+         return 0;
+}
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ echo $?
+0
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ vim code.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim code.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc code.c
+/usr/bin/ld: cannot open output file a.out: Permission denied
+collect2: error: ld returned 1 exit status
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc code.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ echo $?
+232
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ vim code.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$

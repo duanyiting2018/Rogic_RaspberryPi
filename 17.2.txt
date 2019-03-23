@@ -1,0 +1,122 @@
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ cd /
+duanyiting@LAPTOP-HETHMDK8:/$ pwd
+/
+duanyiting@LAPTOP-HETHMDK8:/$ ls
+bin  boot  dev  etc  home  init  lib  lib64  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+duanyiting@LAPTOP-HETHMDK8:/$ cd /usr
+duanyiting@LAPTOP-HETHMDK8:/usr$ ls
+bin  games  include  lib  local  sbin  share  src
+duanyiting@LAPTOP-HETHMDK8:/usr$ cd local
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ ls
+bin  etc  games  include  lib  man  sbin  share  src
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ mkdir dyt
+mkdir: cannot create directory ¡®dyt¡¯: Permission denied
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ sudo mkdir dyt
+[sudo] password for duanyiting:
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ ls
+bin  dyt  etc  games  include  lib  man  sbin  share  src
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ cd dyt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ rm aaa
+rm: cannot remove 'aaa': No such file or directory
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls>test.txt
+-bash: test.txt: Permission denied
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls >test.txt
+-bash: test.txt: Permission denied
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su -
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su -
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su -root
+su: invalid option -- 'r'
+Usage: su [options] [LOGIN]
+
+Options:
+  -c, --command COMMAND         pass COMMAND to the invoked shell
+  -h, --help                    display this help message and exit
+  -, -l, --login                make the shell a login shell
+  -m, -p,
+  --preserve-environment        do not reset environment variables, and
+                                keep the same shell
+  -s, --shell SHELL             use SHELL instead of the default in passwd
+
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su - root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su root
+Password:
+su: Authentication failure
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo passwd
+[sudo] password for duanyiting:
+Sorry, try again.
+[sudo] password for duanyiting:
+Sorry, try again.
+[sudo] password for duanyiting:
+Enter new UNIX password:
+Retype new UNIX password:
+No password supplied
+Enter new UNIX password:
+Retype new UNIX password:
+No password supplied
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ su root
+Password:
+root@LAPTOP-HETHMDK8:/usr/local/dyt# ls >test.txt
+root@LAPTOP-HETHMDK8:/usr/local/dyt# cat test.txt
+test.txt
+root@LAPTOP-HETHMDK8:/usr/local/dyt# su - duanyiting
+duanyiting@LAPTOP-HETHMDK8:~$ cd /usr/local/dyt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ who am i
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ who
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ echo "WIYD?" | write lvor
+write: lvor is not logged in
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ echo "WIYD?" | write lvor
+write: lvor is not logged in
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ echo "WIYD?" | write root
+write: root is not logged in
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ echo "WIYD?" | write duanyiting
+write: duanyiting is not logged in
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ login
+login: Cannot possibly work without effective root
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ login duanyiting
+login: Cannot possibly work without effective root
