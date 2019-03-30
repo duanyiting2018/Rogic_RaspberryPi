@@ -1,0 +1,95 @@
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ cd ..
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows$ cd ..
+duanyiting@LAPTOP-HETHMDK8:/mnt/c$ cd ..
+duanyiting@LAPTOP-HETHMDK8:/mnt$ cd ..
+duanyiting@LAPTOP-HETHMDK8:/$ ls
+bin   dev  home  lib    media  opt   root  sbin  srv  tmp  var
+boot  etc  init  lib64  mnt    proc  run   snap  sys  usr
+duanyiting@LAPTOP-HETHMDK8:/$ cd usr
+duanyiting@LAPTOP-HETHMDK8:/usr$ ls
+bin  games  include  lib  local  sbin  share  src
+duanyiting@LAPTOP-HETHMDK8:/usr$ cd local
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ ls
+bin  dyt  etc  games  include  lib  man  sbin  share  src
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ cd dyt\
+> ls
+-bash: cd: dytls: No such file or directory
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ ls
+bin  dyt  etc  games  include  lib  man  sbin  share  src
+duanyiting@LAPTOP-HETHMDK8:/usr/local$ cd dyt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls
+a.out  code.c  printf.c  test.txt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ cat printf.c
+#include<stdio.h>
+int main()
+{
+        printf("ha ha ha ha ha ha ha ha ha ha!");
+        return 0;
+}
+
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc printf.c
+\/usr/bin/ld: cannot open output file a.out: Permission denied
+collect2: error: ld returned 1 exit status
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo \printf.c
+[sudo] password for duanyiting:
+Sorry, try again.
+[sudo] password for duanyiting:
+sudo: printf.c: command not found
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc printf.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls
+a.out  code.c  printf.c  test.txt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+ha ha ha ha ha ha ha ha ha ha!duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ vim printf_2.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim printf_2.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc printf_2.c
+printf_2.c:1:7: error: expected ¡®=¡¯, ¡®,¡¯, ¡®;¡¯, ¡®asm¡¯ or ¡®__attribute__¡¯ before ¡®<¡¯ token
+ nclude<unsistd.h>
+       ^
+printf_2.c: In function ¡®main¡¯:
+printf_2.c:8:3: error: expected ¡®;¡¯ before ¡®write¡¯
+   write(STDOUT_FILENO,msg,length);
+   ^~~~~
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim printf_2.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc printf_2.c
+printf_2.c:1:7: error: expected ¡®=¡¯, ¡®,¡¯, ¡®;¡¯, ¡®asm¡¯ or ¡®__attribute__¡¯ before ¡®<¡¯ token
+ nclude<unsistd.h>
+       ^
+printf_2.c: In function ¡®main¡¯:
+printf_2.c:8:3: warning: implicit declaration of function ¡®write¡¯ [-Wimplicit-function-declaration]
+   write(STDOUT_FILENO,msg,length);
+   ^~~~~
+printf_2.c:8:9: error: ¡®STDOUT_FILENO¡¯ undeclared (first use in this function)
+   write(STDOUT_FILENO,msg,length);
+         ^~~~~~~~~~~~~
+printf_2.c:8:9: note: each undeclared identifier is reported only once for each function it appears in
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim printf_2.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc printf_2.c
+printf_2.c:1:9: fatal error: unsistd.h: No such file or directory
+ #include<unsistd.h>
+         ^~~~~~~~~~~
+compilation terminated.
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim printf_2.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc printf_2.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+ha ha ha ha ha!duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ vim yzl.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim yzl.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc yzl.c
+yzl.c: In function ¡®main¡¯:
+yzl.c:23:21: warning: format ¡®%d¡¯ expects argument of type ¡®int¡¯, but argument 2 has type
+double¡¯ [-Wformat=]
+  printf("A o t s c:%d \n",area);
+                    ~^
+                    %f
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim yzl.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc yzl.c
+yzl.c: In function ¡®main¡¯:
+yzl.c:26:21: warning: format ¡®%d¡¯ expects argument of type ¡®int¡¯, but argument 2 has type
+double¡¯ [-Wformat=]
+  printf("      s  :%d \n",area);
+                    ~^
+                    %f
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim yzl.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc yzl.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+A o t f c:  4.52
+      s  :81.712814
