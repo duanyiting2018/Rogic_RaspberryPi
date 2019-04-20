@@ -1,0 +1,71 @@
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ cd usr/local/dyt
+-bash: cd: usr/local/dyt: No such file or directory
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ cd /usr/local/dyt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls
+a.out   log       printf_2.c  t_s2.bash  yzl.c
+code.c  printf.c  t_s.bash    test.txt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ vim xinhao.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim xinhao.c
+[sudo] password for duanyiting:
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc xinhao.c xh.o
+gcc: error: xh.o: No such file or directory
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc xinhao.c xh
+gcc: error: xh: No such file or directory
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc xinhao.c
+xinhao.c: In function ¡®main¡¯:
+xinhao.c:10:2: warning: implicit declaration of function ¡®sigint¡¯; did you mean ¡®si_int¡¯? [-Wimplicit-function-declaration]
+  sigint(SIGINT,sigint_h);
+  ^~~~~~
+  si_int
+/usr/bin/ld: cannot open output file a.out: Permission denied
+collect2: error: ld returned 1 exit status
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim xinhao.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc xinhao.c
+/usr/bin/ld: cannot open output file a.out: Permission denied
+collect2: error: ld returned 1 exit status
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc xinhao.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+waiting...
+waiting...
+waiting...
+waiting...
+waiting...
+waiting...
+^CRECEIVED SIGINT
+waiting...
+waiting...
+waiting...
+waiting...
+waiting...
+waiting...
+^CRECEIVED SIGINT
+waiting...
+waiting...
+waiting...
+waiting...
+waiting...
+waiting...
+^Z
+[1]+  Stopped                 ./a.out
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ps
+  PID TTY          TIME CMD
+    4 tty1     00:00:00 bash
+   38 tty1     00:00:00 a.out
+   39 tty1     00:00:00 ps
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ps -o pid,tty,ppid,time,cmd
+  PID TT        PPID     TIME CMD
+    4 tty1         3 00:00:00 -bash
+   38 tty1         4 00:00:00 ./a.out
+   40 tty1         4 00:00:00 ps -o pid,tty,ppid,time,cmd
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ps -a
+  PID TTY          TIME CMD
+    4 tty1     00:00:00 bash
+   38 tty1     00:00:00 a.out
+   41 tty1     00:00:00 ps
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   8304   132 ?        Ss   12:18   0:00 /init ro
+root         3  0.0  0.0   8304    96 tty1     Ss   12:18   0:00 /init ro
+duanyit+     4  0.0  0.0  16884  3448 tty1     S    12:18   0:00 -bash
+duanyit+    38  0.0  0.0  10540   544 tty1     T    12:31   0:00 ./a.out
+duanyit+    42  0.0  0.0  17648  2044 tty1     R    12:40   0:00 ps -aux
