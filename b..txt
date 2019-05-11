@@ -1,0 +1,38 @@
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ cd /usr/local/dyt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls
+a.out   log       printf_2.c  t_s2.bash  xinhao.c
+code.c  printf.c  t_s.bash    test.txt   yzl.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim fork.c
+[sudo] password for duanyiting:
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc fork.c
+[sudo] password for duanyiting:
+fork.c: In function ¡®main¡¯:
+fork.c:11:3: warning: implicit declaration of function ¡®print¡¯; did you mean ¡®printf¡¯? [-Wimplicit-function-declaration]
+   print("File:<fork.c>,line 11,in<module>fork ERROR");
+   ^~~~~
+   printf
+/tmp/cc09Z29K.o: In function `main':
+fork.c:(.text+0x2a): undefined reference to `print'
+collect2: error: ld returned 1 exit status
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim fork.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc fork.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+childREN:1024
+sleep(5)!children's dad:1024
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim fork.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc fork.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim fork.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+sleep(5)!
+childREN:1024
+children's dad:1024
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+sleep(5)!
+childREN:1024
+children's dad:1024
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim fork.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc fork.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+sleep(5)!
+childREN:1024
+children's DAD:1024

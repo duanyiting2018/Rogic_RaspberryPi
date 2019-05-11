@@ -1,0 +1,35 @@
+duanyiting@LAPTOP-HETHMDK8:/mnt/c/Windows/System32$ cd /usr/local/dyt
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ls
+a.out   fork.c  printf.c    t_s.bash   test.txt  yzl.c
+code.c  log     printf_2.c  t_s2.bash  xinhao.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim wait.c
+[sudo] password for duanyiting:
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ gcc wait.c
+/usr/bin/ld: cannot open output file a.out: Permission denied
+collect2: error: ld returned 1 exit status
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc wait.c
+[sudo] password for duanyiting:
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+zijingchengPID:29
+^C
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+zijingchengPID:31
+^Z
+[1]+  Stopped                 ./a.out
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+zijingchengPID:33
+^C
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ps
+  PID TTY          TIME CMD
+    4 tty1     00:00:00 bash
+   30 tty1     00:00:00 a.out
+   31 tty1     00:00:04 a.out
+   34 tty1     00:00:00 ps
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ kill -9 30
+[1]+  Killed                  ./a.out
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ kill -9 31
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo vim wait.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ sudo gcc wait.c
+duanyiting@LAPTOP-HETHMDK8:/usr/local/dyt$ ./a.out
+zijingchengPID:44
+zijingchengfanhuizhi:0
